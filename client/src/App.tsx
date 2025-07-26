@@ -4,6 +4,7 @@ import { queryClient } from "./lib/queryClient";
 import { QueryClientProvider } from "@tanstack/react-query";
 import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
+import Navigation from "@/components/layout/Navigation";
 import AnimatedBackground from "@/components/layout/AnimatedBackground";
 
 import { LoadingProvider } from "@/contexts/LoadingContext";
@@ -94,7 +95,10 @@ function App() {
                 <PageLoadingProvider>
                   <div className="min-h-screen bg-background text-foreground relative overflow-x-hidden">
                     <AnimatedBackground />
-                    <Router />
+                    <Navigation />
+                    <div className="relative z-10">
+                      <Router />
+                    </div>
                     <Toaster />
                   </div>
                 </PageLoadingProvider>

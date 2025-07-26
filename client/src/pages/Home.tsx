@@ -13,7 +13,26 @@ import {
   Zap,
   TrendingUp,
   Award,
-  Clock
+  Clock,
+  Heart,
+  Rocket,
+  Lightbulb,
+  Trophy,
+  Shield,
+  Globe,
+  Code,
+  Palette,
+  Brain,
+  Eye,
+  MousePointer,
+  Zap as Lightning,
+  CheckCircle,
+  Smile,
+  Coffee,
+  Music,
+  Camera,
+  Gift,
+  Flame
 } from "lucide-react";
 import GlassmorphismButton from "@/components/ui/glassmorphism-button";
 
@@ -32,11 +51,24 @@ const Home = () => {
     { id: 1, icon: Sparkles, color: "from-purple-400 to-pink-400", delay: 0 },
     { id: 2, icon: Star, color: "from-teal-400 to-blue-400", delay: 0.5 },
     { id: 3, icon: Target, color: "from-yellow-400 to-orange-400", delay: 1 },
+    { id: 4, icon: Heart, color: "from-red-400 to-pink-400", delay: 1.5 },
+    { id: 5, icon: Rocket, color: "from-blue-400 to-purple-400", delay: 2 },
+    { id: 6, icon: Lightning, color: "from-yellow-400 to-orange-400", delay: 2.5 },
   ];
 
   const skillTags = [
     "React", "TypeScript", "AI/ML", "Python", "JavaScript", "Node.js",
-    "Design", "Animation", "Figma", "Vue.js", "Grids", "Tailwind"
+    "Design", "Animation", "Figma", "Vue.js", "Grids", "Tailwind",
+    "Next.js", "GraphQL", "MongoDB", "Docker", "AWS", "Firebase"
+  ];
+
+  const funElements = [
+    { icon: Coffee, text: "Fuel your creativity", color: "text-orange-400" },
+    { icon: Music, text: "Learn with rhythm", color: "text-purple-400" },
+    { icon: Camera, text: "Capture knowledge", color: "text-blue-400" },
+    { icon: Gift, text: "Unlock your potential", color: "text-green-400" },
+    { icon: Flame, text: "Ignite your passion", color: "text-red-400" },
+    { icon: Brain, text: "Expand your mind", color: "text-pink-400" }
   ];
 
   const contentCards = [
@@ -44,53 +76,65 @@ const Home = () => {
       id: 1,
       type: "WORKSHOP",
       title: "AI-Powered Learning Workshop",
-      subtitle: "Dr. Sarah Chen",
+      subtitle: "Dr. Sarah Chen • Interactive Sessions",
       bgColor: "bg-gray-50",
       accentColor: "bg-orange-100",
       icon: Zap,
-      action: "Add event"
+      action: "Add event",
+      features: ["Live Q&A", "Hands-on Projects", "Certificate"]
     },
     {
       id: 2,
       type: "COURSE",
       title: "Product Designer from Scratch",
-      subtitle: "Beginner • 4-6 months",
+      subtitle: "Beginner • 4-6 months • 12 Modules",
       bgColor: "bg-amber-50",
       accentColor: "bg-orange-100",
       icon: BookOpen,
-      action: null
+      action: null,
+      features: ["Portfolio Building", "Industry Mentors", "Job Ready"]
     },
     {
       id: 3,
       type: "EVENT",
-      title: "Tech Meetup DevSum",
-      subtitle: "10/10/2023 - 14/10/2023",
+      title: "Tech Meetup DevSum 2024",
+      subtitle: "10/10/2023 - 14/10/2023 • Virtual & In-Person",
       bgColor: "bg-green-50",
       accentColor: "bg-green-100",
       icon: Calendar,
-      action: "Add event"
+      action: "Add event",
+      features: ["Networking", "Workshops", "Hackathon"]
     },
     {
       id: 4,
       type: "STATS",
       title: "100K+",
-      subtitle: "trained students",
+      subtitle: "trained students worldwide",
       bgColor: "bg-purple-500",
       accentColor: "bg-purple-600",
       icon: Users,
       action: null,
-      isStats: true
+      isStats: true,
+      features: ["Active Community", "Global Reach", "Success Stories"]
     },
     {
       id: 5,
       type: "FEATURE",
       title: "Competitive Advantage",
-      subtitle: "Stay ahead with AI",
+      subtitle: "Stay ahead with cutting-edge AI technology",
       bgColor: "bg-yellow-400",
       accentColor: "bg-yellow-500",
       icon: TrendingUp,
-      action: null
+      action: null,
+      features: ["AI-Powered", "Real-time", "Personalized"]
     }
+  ];
+
+  const stats = [
+    { number: "50K+", label: "Active Learners", icon: Users },
+    { number: "98%", label: "Success Rate", icon: Trophy },
+    { number: "24/7", label: "AI Support", icon: Shield },
+    { number: "200+", label: "Expert Mentors", icon: Award }
   ];
 
   return (
@@ -99,10 +143,10 @@ const Home = () => {
       {floatingElements.map((element) => (
         <motion.div
           key={element.id}
-          className={`absolute w-20 h-20 rounded-full bg-gradient-to-r ${element.color} opacity-20 blur-xl`}
+          className={`absolute w-16 h-16 rounded-full bg-gradient-to-r ${element.color} opacity-20 blur-xl`}
           style={{
-            left: `${20 + element.id * 25}%`,
-            top: `${30 + element.id * 15}%`,
+            left: `${15 + element.id * 15}%`,
+            top: `${20 + element.id * 12}%`,
           }}
           animate={{
             y: [-20, 20, -20],
@@ -119,10 +163,10 @@ const Home = () => {
       ))}
 
       {/* Main Content */}
-      <div className="relative z-10 px-4 sm:px-6 lg:px-8 pt-20 pb-16">
+      <div className="relative z-10 px-4 sm:px-6 lg:px-8 pt-8 pb-16">
         {/* Hero Section */}
         <motion.div 
-          className="text-center max-w-6xl mx-auto mb-20"
+          className="max-w-7xl mx-auto mb-16"
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
@@ -144,7 +188,7 @@ const Home = () => {
 
           {/* Main Headline */}
           <motion.h1 
-            className="text-6xl md:text-8xl font-bold text-white mb-8 leading-tight"
+            className="text-6xl md:text-8xl font-bold text-white mb-8 leading-tight text-center"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
@@ -180,22 +224,45 @@ const Home = () => {
             </span>
           </motion.h1>
 
-          {/* Subtitle */}
+          {/* Extended Subtitle */}
           <motion.p 
-            className="text-xl md:text-2xl text-gray-300 max-w-3xl mx-auto mb-12"
+            className="text-xl md:text-2xl text-gray-300 max-w-6xl mx-auto mb-8 leading-relaxed text-center"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.6 }}
           >
-            Learn and improve your skills with interactive courses and AI-powered tutoring built specifically for future professionals
+            Learn and improve your skills with interactive courses and AI-powered tutoring built specifically for future professionals. 
+            Join our global community of learners and unlock your potential with cutting-edge technology and personalized learning experiences.
           </motion.p>
 
-          {/* CTA Buttons */}
+          {/* Fun Elements Row */}
           <motion.div 
-            className="flex flex-col sm:flex-row gap-4 justify-center items-center"
+            className="flex flex-wrap justify-center gap-6 mb-8"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.8 }}
+          >
+            {funElements.map((element, index) => (
+              <motion.div
+                key={index}
+                className="flex items-center space-x-2 text-sm"
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.4, delay: 1 + index * 0.1 }}
+                whileHover={{ scale: 1.1 }}
+              >
+                <element.icon className={`w-4 h-4 ${element.color}`} />
+                <span className="text-gray-400">{element.text}</span>
+              </motion.div>
+            ))}
+          </motion.div>
+
+          {/* CTA Buttons */}
+          <motion.div 
+            className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 1.2 }}
           >
             <motion.button
               className="px-8 py-4 bg-purple-500 hover:bg-purple-600 text-white font-semibold rounded-full flex items-center space-x-2 transition-all duration-300"
@@ -216,14 +283,39 @@ const Home = () => {
               <span>Try AI Tutor</span>
             </motion.button>
           </motion.div>
+
+          {/* Stats Row */}
+          <motion.div 
+            className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-5xl mx-auto mb-16"
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 1.4 }}
+          >
+            {stats.map((stat, index) => (
+              <motion.div
+                key={index}
+                className="text-center"
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.4, delay: 1.6 + index * 0.1 }}
+                whileHover={{ scale: 1.05 }}
+              >
+                <div className="flex items-center justify-center mb-2">
+                  <stat.icon className="w-6 h-6 text-purple-400 mr-2" />
+                  <div className="text-2xl font-bold text-white">{stat.number}</div>
+                </div>
+                <div className="text-sm text-gray-400">{stat.label}</div>
+              </motion.div>
+            ))}
+          </motion.div>
         </motion.div>
 
         {/* Content Cards Grid */}
         <motion.div 
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-7xl mx-auto mb-20"
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-7xl mx-auto mb-16"
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 1 }}
+          transition={{ duration: 0.8, delay: 1.8 }}
         >
           {contentCards.map((card, index) => (
             <motion.div
@@ -231,7 +323,7 @@ const Home = () => {
               className={`${card.bgColor} rounded-2xl p-6 relative overflow-hidden group cursor-pointer transition-all duration-300 hover:scale-105`}
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 1.2 + index * 0.1 }}
+              transition={{ duration: 0.6, delay: 2 + index * 0.1 }}
               whileHover={{ y: -5 }}
               onClick={() => {
                 if (card.type === "WORKSHOP") setLocation('/presentations');
@@ -264,9 +356,21 @@ const Home = () => {
                 <h3 className="text-xl font-bold text-gray-900 mb-2">
                   {card.title}
                 </h3>
-                <p className="text-sm text-gray-600">
+                <p className="text-sm text-gray-600 mb-4">
                   {card.subtitle}
                 </p>
+                
+                {/* Features List */}
+                {card.features && (
+                  <div className="space-y-2 mb-4">
+                    {card.features.map((feature, idx) => (
+                      <div key={idx} className="flex items-center space-x-2">
+                        <CheckCircle className="w-4 h-4 text-green-500" />
+                        <span className="text-xs text-gray-600">{feature}</span>
+                      </div>
+                    ))}
+                  </div>
+                )}
                 
                 {/* Stats Card Special Styling */}
                 {card.isStats && (
@@ -286,38 +390,115 @@ const Home = () => {
           ))}
         </motion.div>
 
-        {/* Skill Tags */}
+        {/* Fun Interactive Section */}
         <motion.div 
-          className="flex flex-wrap justify-center gap-3 max-w-4xl mx-auto"
+          className="text-center mb-16"
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 1.8 }}
+          transition={{ duration: 0.8, delay: 2.8 }}
         >
-          {skillTags.map((tag, index) => (
-            <motion.div
-              key={tag}
-              className="px-4 py-2 bg-purple-500 text-white rounded-full text-sm font-medium cursor-pointer hover:bg-purple-600 transition-colors"
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.4, delay: 2 + index * 0.05 }}
-              whileHover={{ scale: 1.1, y: -2 }}
-              whileTap={{ scale: 0.95 }}
+          <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
+            Why Choose Coexist AI? 
+            <span className="inline-block ml-2">
+              <motion.div
+                animate={{ rotate: [0, 10, -10, 0] }}
+                transition={{ duration: 2, repeat: Infinity }}
+              >
+                <Smile className="w-8 h-8 text-yellow-400 inline" />
+              </motion.div>
+            </span>
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+            <motion.div 
+              className="text-center"
+              whileHover={{ scale: 1.05 }}
             >
-              {tag}
+              <div className="w-16 h-16 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                <Brain className="w-8 h-8 text-white" />
+              </div>
+              <h3 className="text-xl font-semibold text-white mb-2">AI-Powered Learning</h3>
+              <p className="text-gray-400">Personalized experiences that adapt to your learning style and pace</p>
             </motion.div>
-          ))}
+            <motion.div 
+              className="text-center"
+              whileHover={{ scale: 1.05 }}
+            >
+              <div className="w-16 h-16 bg-gradient-to-r from-teal-500 to-blue-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                <Globe className="w-8 h-8 text-white" />
+              </div>
+              <h3 className="text-xl font-semibold text-white mb-2">Global Community</h3>
+              <p className="text-gray-400">Connect with learners worldwide and share knowledge across borders</p>
+            </motion.div>
+            <motion.div 
+              className="text-center"
+              whileHover={{ scale: 1.05 }}
+            >
+              <div className="w-16 h-16 bg-gradient-to-r from-yellow-500 to-orange-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                <Rocket className="w-8 h-8 text-white" />
+              </div>
+              <h3 className="text-xl font-semibold text-white mb-2">Future-Ready Skills</h3>
+              <p className="text-gray-400">Learn the most in-demand skills for tomorrow's job market</p>
+            </motion.div>
+          </div>
+        </motion.div>
+
+        {/* Skill Tags */}
+        <motion.div 
+          className="text-center mb-16"
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 3.2 }}
+        >
+          <h3 className="text-2xl font-bold text-white mb-6">
+            Master the Latest Technologies
+            <span className="inline-block ml-2">
+              <motion.div
+                animate={{ scale: [1, 1.2, 1] }}
+                transition={{ duration: 1, repeat: Infinity }}
+              >
+                <Code className="w-6 h-6 text-purple-400 inline" />
+              </motion.div>
+            </span>
+          </h3>
+          <div className="flex flex-wrap justify-center gap-3 max-w-5xl mx-auto">
+            {skillTags.map((tag, index) => (
+              <motion.div
+                key={tag}
+                className="px-4 py-2 bg-purple-500 text-white rounded-full text-sm font-medium cursor-pointer hover:bg-purple-600 transition-colors"
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.4, delay: 3.4 + index * 0.05 }}
+                whileHover={{ scale: 1.1, y: -2 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                {tag}
+              </motion.div>
+            ))}
+          </div>
         </motion.div>
 
         {/* Bottom CTA */}
         <motion.div 
-          className="text-center mt-20"
+          className="text-center"
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 2.5 }}
+          transition={{ duration: 0.8, delay: 4 }}
         >
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
-            Ready to transform your learning?
+            Ready to transform your learning journey?
+            <span className="inline-block ml-2">
+              <motion.div
+                animate={{ rotate: [0, 360] }}
+                transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
+              >
+                <Rocket className="w-8 h-8 text-purple-400 inline" />
+              </motion.div>
+            </span>
           </h2>
+          <p className="text-xl text-gray-300 mb-8 max-w-3xl mx-auto">
+            Join thousands of learners who are already building their future with AI-powered education. 
+            Start your journey today and unlock unlimited possibilities!
+          </p>
           <motion.button
             className="px-10 py-5 bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 text-white font-bold rounded-full text-lg flex items-center space-x-3 mx-auto transition-all duration-300"
             whileHover={{ scale: 1.05, boxShadow: "0 20px 40px rgba(147, 51, 234, 0.3)" }}
