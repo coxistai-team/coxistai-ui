@@ -130,8 +130,8 @@ const FileUpload = ({
       <motion.div
         className={`border-2 border-dashed rounded-xl p-6 text-center transition-all duration-300 cursor-pointer ${
           isDragActive 
-            ? 'border-blue-400 bg-blue-500/10' 
-            : 'border-white/20 hover:border-white/40 bg-white/5'
+            ? 'border-warm-600 bg-warm-500/15' 
+            : 'border-warm-400/40 hover:border-warm-500/60 bg-warm-200/20'
         }`}
         onDrop={handleDrop}
         onDragOver={handleDragOver}
@@ -150,14 +150,14 @@ const FileUpload = ({
         />
         
         <div className="space-y-2">
-          <div className="mx-auto w-12 h-12 bg-gradient-to-r from-blue-500 to-green-500 rounded-full flex items-center justify-center">
-            <File className="w-6 h-6 text-white" />
+          <div className="mx-auto w-12 h-12 gradient-warm rounded-full flex items-center justify-center shadow-medium">
+            <File className="w-6 h-6 text-warm-50" />
           </div>
           <div>
-            <p className="text-white font-medium">
+            <p className="text-warm-800 font-medium">
               {isDragActive ? 'Drop files here' : 'Click to upload or drag and drop'}
             </p>
-            <p className="text-sm text-slate-400">
+            <p className="text-sm text-warm-600">
               Images, PDFs, Documents up to {maxSize}MB each
             </p>
           </div>
@@ -173,7 +173,7 @@ const FileUpload = ({
             exit={{ opacity: 0, height: 0 }}
             className="space-y-2"
           >
-            <p className="text-sm text-slate-400 font-medium">
+            <p className="text-sm text-warm-600 font-medium">
               Uploaded Files ({uploadedFiles.length}/{maxFiles})
             </p>
             
@@ -189,10 +189,10 @@ const FileUpload = ({
                   <div className="flex items-center space-x-3">
                     {getFileIcon(uploadedFile.type)}
                     <div className="flex-1 min-w-0">
-                      <p className="text-white text-sm font-medium truncate">
+                      <p className="text-warm-800 text-sm font-medium truncate">
                         {uploadedFile.file.name}
                       </p>
-                      <p className="text-slate-400 text-xs">
+                      <p className="text-warm-600 text-xs">
                         {formatFileSize(uploadedFile.file.size)}
                       </p>
                     </div>
@@ -205,14 +205,14 @@ const FileUpload = ({
                           <Button
                             variant="ghost"
                             size="sm"
-                            className="p-2 hover:bg-white/10"
+                            className="p-2 hover:bg-warm-200/50"
                           >
                             <Eye className="w-4 h-4" />
                           </Button>
                         </DialogTrigger>
-                        <DialogContent className="max-w-2xl bg-slate-900 border-white/20">
+                        <DialogContent className="max-w-2xl glassmorphism-strong border-warm-400/30">
                           <DialogHeader>
-                            <DialogTitle className="text-white">
+                            <DialogTitle className="text-warm-800">
                               {uploadedFile.file.name}
                             </DialogTitle>
                           </DialogHeader>
@@ -231,7 +231,7 @@ const FileUpload = ({
                       variant="ghost"
                       size="sm"
                       onClick={() => removeFile(index)}
-                      className="p-2 hover:bg-red-500/20 text-red-400 hover:text-red-300"
+                      className="p-2 hover:bg-destructive/20 text-destructive hover:text-destructive/80"
                     >
                       <X className="w-4 h-4" />
                     </Button>

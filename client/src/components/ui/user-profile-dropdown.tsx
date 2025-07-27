@@ -105,30 +105,30 @@ export default function UserProfileDropdown({ className = "" }: UserProfileDropd
             setIsOpen(!isOpen);
           }
         }}
-        className="flex items-center space-x-3 p-2 rounded-xl glassmorphism hover:bg-white/10 transition-all duration-200 w-full"
+        className="flex items-center space-x-3 p-2 rounded-xl glassmorphism hover:glassmorphism-strong transition-all duration-200 w-full"
         whileHover={{ scale: 1.02 }}
         whileTap={{ scale: 0.98 }}
       >
-        <Avatar className="w-8 h-8 ring-2 ring-blue-500/30">
+        <Avatar className="w-8 h-8 ring-2 ring-warm-500/40 shadow-soft">
           <AvatarImage src={user.avatar || undefined} alt={getUserName()} />
-          <AvatarFallback className="bg-gradient-to-r from-blue-500 to-green-500 text-white text-sm font-semibold">
+          <AvatarFallback className="gradient-warm text-warm-50 text-sm font-semibold">
             {getInitials(user.firstName || '', user.lastName || '')}
           </AvatarFallback>
         </Avatar>
         <div className="text-left flex-1">
-          <div className="text-sm font-medium text-slate-900 dark:text-white sm:block hidden">{getUserName()}</div>
-          <div className="text-sm font-medium text-slate-900 dark:text-white sm:hidden block">Profile</div>
-          <div className="text-xs text-slate-600 dark:text-slate-400 sm:block hidden">Pro Plan</div>
-          <div className="text-xs text-slate-600 dark:text-slate-400 sm:hidden block">Settings & Account</div>
+          <div className="text-sm font-medium text-warm-800 sm:block hidden">{getUserName()}</div>
+          <div className="text-sm font-medium text-warm-800 sm:hidden block">Profile</div>
+          <div className="text-xs text-warm-600 sm:block hidden">Pro Plan</div>
+          <div className="text-xs text-warm-600 sm:hidden block">Settings & Account</div>
         </div>
         {!isMobile && className.includes('w-full') ? (
-          <ChevronDown className={`w-4 h-4 text-slate-600 dark:text-slate-400 transition-transform duration-200 ${
+          <ChevronDown className={`w-4 h-4 text-warm-600 transition-transform duration-200 ${
             isOpen ? 'rotate-180' : ''
           }`} />
         ) : isMobile ? (
-          <div className="text-xs text-slate-400">→</div>
+          <div className="text-xs text-warm-500">→</div>
         ) : (
-          <ChevronDown className={`w-4 h-4 text-slate-400 transition-transform duration-200 ${
+          <ChevronDown className={`w-4 h-4 text-warm-600 transition-transform duration-200 ${
             isOpen ? 'rotate-180' : ''
           }`} />
         )}
@@ -156,17 +156,17 @@ export default function UserProfileDropdown({ className = "" }: UserProfileDropd
               transition={{ duration: 0.2 }}
             >
               {/* User Info Section */}
-              <div className="p-4 bg-gradient-to-r from-blue-500/10 to-green-500/10">
+              <div className="p-4 bg-gradient-to-r from-warm-500/15 to-beige-400/15">
                 <div className="flex items-center space-x-3">
                   <div className="relative">
-                    <Avatar className="w-12 h-12 ring-2 ring-blue-500/30">
+                    <Avatar className="w-12 h-12 ring-2 ring-warm-500/40 shadow-medium">
                       <AvatarImage src={user.avatar || undefined} alt={getUserName()} />
-                      <AvatarFallback className="bg-gradient-to-r from-blue-500 to-green-500 text-white font-semibold">
+                      <AvatarFallback className="gradient-warm text-warm-50 font-semibold">
                         {getInitials(user.firstName || '', user.lastName || '')}
                       </AvatarFallback>
                     </Avatar>
-                    <label className="absolute -bottom-1 -right-1 w-6 h-6 bg-blue-500 rounded-full flex items-center justify-center cursor-pointer hover:bg-blue-600 transition-colors">
-                      <Camera className="w-3 h-3 text-white" />
+                    <label className="absolute -bottom-1 -right-1 w-6 h-6 bg-warm-600 rounded-full flex items-center justify-center cursor-pointer hover:bg-warm-700 transition-colors shadow-soft">
+                      <Camera className="w-3 h-3 text-warm-50" />
                       <input
                         type="file"
                         accept="image/*"
@@ -176,9 +176,9 @@ export default function UserProfileDropdown({ className = "" }: UserProfileDropd
                     </label>
                   </div>
                   <div className="flex-1">
-                    <div className="font-semibold text-white">{getUserName()}</div>
-                    <div className="text-sm text-slate-400">{user.email || 'No email set'}</div>
-                    <Badge className={`mt-1 text-xs ${getPlanColor()} text-white border-0`}>
+                    <div className="font-semibold text-warm-800">{getUserName()}</div>
+                    <div className="text-sm text-warm-600">{user.email || 'No email set'}</div>
+                    <Badge className="mt-1 text-xs gradient-warm text-warm-50 border-0 shadow-soft">
                       <Crown className="w-3 h-3 mr-1" />
                       Pro Plan
                     </Badge>
@@ -186,24 +186,24 @@ export default function UserProfileDropdown({ className = "" }: UserProfileDropd
                 </div>
               </div>
 
-              <Separator className="bg-white/10" />
+              <Separator className="bg-warm-400/30" />
 
               {/* User Details */}
               <div className="p-4">
-                <div className="text-sm font-medium text-white mb-2">Account Details</div>
+                <div className="text-sm font-medium text-warm-800 mb-2">Account Details</div>
                 <div className="space-y-2">
                   <div className="flex justify-between items-center text-sm">
-                    <span className="text-slate-400">Occupation</span>
-                    <span className="text-white">{user.occupation || 'Not set'}</span>
+                    <span className="text-warm-600">Occupation</span>
+                    <span className="text-warm-800">{user.occupation || 'Not set'}</span>
                   </div>
                   <div className="flex justify-between items-center text-sm">
-                    <span className="text-slate-400">Location</span>
-                    <span className="text-white">{user.location || 'Not set'}</span>
+                    <span className="text-warm-600">Location</span>
+                    <span className="text-warm-800">{user.location || 'Not set'}</span>
                   </div>
                 </div>
               </div>
 
-              <Separator className="bg-white/10" />
+              <Separator className="bg-warm-400/30" />
 
               {/* Menu Items */}
               <div className="p-2">
@@ -265,12 +265,12 @@ export default function UserProfileDropdown({ className = "" }: UserProfileDropd
                 */}
                 <motion.button
                   onClick={handleLogout}
-                  className="w-full flex items-center space-x-3 p-3 rounded-lg hover:bg-red-500/20 transition-colors text-left group"
+                  className="w-full flex items-center space-x-3 p-3 rounded-lg hover:bg-destructive/20 transition-colors text-left group"
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
                 >
-                  <LogOut className="w-4 h-4 text-red-400" />
-                  <span className="text-red-400 group-hover:text-red-300">Log Out</span>
+                  <LogOut className="w-4 h-4 text-destructive" />
+                  <span className="text-destructive group-hover:text-destructive/80">Log Out</span>
                 </motion.button>
               </div>
             </motion.div>

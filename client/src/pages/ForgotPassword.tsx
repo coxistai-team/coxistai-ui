@@ -49,19 +49,19 @@ const ForgotPassword = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="glassmorphism rounded-2xl p-8 text-center"
+            className="glassmorphism-strong rounded-2xl p-8 text-center shadow-xl"
           >
             <motion.div
               initial={{ scale: 0 }}
               animate={{ scale: 1 }}
               transition={{ delay: 0.3, type: "spring" }}
-              className="w-16 h-16 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-6"
+              className="w-16 h-16 bg-beige-500 rounded-full flex items-center justify-center mx-auto mb-6 shadow-medium"
             >
-              <CheckCircle className="w-8 h-8 text-white" />
+              <CheckCircle className="w-8 h-8 text-warm-50" />
             </motion.div>
 
             <motion.h1 
-              className="text-2xl font-bold mb-4 text-white"
+              className="text-2xl font-bold mb-4 text-warm-800"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.4 }}
@@ -70,12 +70,12 @@ const ForgotPassword = () => {
             </motion.h1>
 
             <motion.p 
-              className="text-slate-400 mb-6"
+              className="text-warm-600 mb-6"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.5 }}
             >
-              We've sent a password reset link to <strong className="text-white">{email}</strong>
+              We've sent a password reset link to <strong className="text-warm-800">{email}</strong>
             </motion.p>
 
             <motion.div
@@ -86,16 +86,16 @@ const ForgotPassword = () => {
             >
               <GlassmorphismButton
                 onClick={handleBackToLogin}
-                className="w-full py-3 bg-gradient-to-r from-blue-500 to-green-500"
+                className="w-full py-3"
               >
                 Back to Login
               </GlassmorphismButton>
 
-              <p className="text-sm text-slate-400">
+              <p className="text-sm text-warm-600">
                 Didn't receive the email? Check your spam folder or{" "}
                 <button 
                   onClick={() => setIsSubmitted(false)}
-                  className="text-blue-400 hover:text-blue-300 underline"
+                  className="text-warm-700 hover:text-warm-800 underline font-medium"
                 >
                   try again
                 </button>
@@ -118,7 +118,7 @@ const ForgotPassword = () => {
           className="mb-6"
         >
           <Link href="/login">
-            <Button variant="ghost" size="sm" className="text-slate-400 hover:text-white">
+            <Button variant="ghost" size="sm" className="text-warm-600 hover:text-warm-800 hover:bg-warm-200/50">
               <ArrowLeft className="w-4 h-4 mr-2" />
               Back to Login
             </Button>
@@ -130,12 +130,12 @@ const ForgotPassword = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="glassmorphism rounded-2xl p-8"
+          className="glassmorphism-strong rounded-2xl p-8 shadow-xl"
         >
           {/* Header */}
           <div className="text-center mb-8">
             <motion.h1 
-              className="text-3xl font-bold mb-2 bg-gradient-to-r from-blue-400 to-green-400 bg-clip-text text-transparent"
+              className="text-3xl font-bold mb-2 text-gradient-primary"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.2 }}
@@ -143,7 +143,7 @@ const ForgotPassword = () => {
               Forgot Password?
             </motion.h1>
             <motion.p 
-              className="text-slate-400"
+              className="text-warm-600"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.3 }}
@@ -162,9 +162,9 @@ const ForgotPassword = () => {
           >
             {/* Email Field */}
             <div className="space-y-2">
-              <Label htmlFor="email" className="text-white">Email Address</Label>
+              <Label htmlFor="email" className="text-warm-800 font-medium">Email Address</Label>
               <div className="relative">
-                <Mail className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-slate-400" />
+                <Mail className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-warm-500" />
                 <Input
                   id="email"
                   name="email"
@@ -172,7 +172,7 @@ const ForgotPassword = () => {
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   placeholder="Enter your email address"
-                  className="pl-10 bg-white/5 border-white/20 text-white placeholder-slate-400 focus:border-blue-400"
+                  className="pl-10 form-input"
                   required
                 />
               </div>
@@ -180,13 +180,13 @@ const ForgotPassword = () => {
 
             {/* Error Message */}
             {error && (
-              <div className="text-red-500 text-sm text-center">{error}</div>
+              <div className="text-destructive text-sm text-center bg-destructive/10 p-3 rounded-lg border border-destructive/20">{error}</div>
             )}
 
             {/* Submit Button */}
             <GlassmorphismButton
               type="submit"
-              className="w-full py-3 bg-gradient-to-r from-blue-500 to-green-500 hover:from-blue-600 hover:to-green-600"
+              className="w-full py-3"
               disabled={loading}
             >
               {loading ? "Sending..." : "Send Reset Link"}
@@ -200,10 +200,10 @@ const ForgotPassword = () => {
             animate={{ opacity: 1 }}
             transition={{ delay: 0.5 }}
           >
-            <p className="text-sm text-slate-400">
+            <p className="text-sm text-warm-600">
               Remember your password?{" "}
               <Link href="/login">
-                <span className="text-blue-400 hover:text-blue-300 cursor-pointer transition-colors">
+                <span className="text-warm-700 hover:text-warm-800 cursor-pointer transition-colors font-medium">
                   Sign in here
                 </span>
               </Link>

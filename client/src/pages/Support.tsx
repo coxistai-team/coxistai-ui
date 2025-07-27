@@ -150,13 +150,13 @@ const Support = () => {
           transition={{ duration: 0.8 }}
         >
           <div className="inline-flex items-center space-x-2 glassmorphism rounded-full px-4 py-2 mb-6">
-            <HelpCircle className="w-4 h-4 text-blue-400" />
-            <span className="text-sm font-semibold text-blue-400">Support Center</span>
+            <HelpCircle className="w-4 h-4 text-warm-600" />
+            <span className="text-sm font-semibold text-warm-700">Support Center</span>
           </div>
-          <h1 className="text-4xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-blue-500 to-green-500 bg-clip-text text-transparent">
+          <h1 className="text-4xl md:text-6xl font-bold mb-6 text-gradient-primary">
             How Can We Help?
           </h1>
-          <p className="text-xl text-slate-400 mb-8 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-xl text-warm-600 mb-8 max-w-3xl mx-auto leading-relaxed">
             Get the support you need to make the most of your Coexist AI experience. 
             We're here to help you succeed in your learning journey.
           </p>
@@ -170,27 +170,27 @@ const Support = () => {
           transition={{ duration: 0.8, delay: 0.2 }}
         >
           {supportOptions.map((option, index) => (
-            <Card key={index} className="glassmorphism border-slate-700/50 hover:border-blue-400/30 transition-all duration-300 group">
+            <Card key={index} className="glassmorphism border-warm-400/30 hover:border-warm-500/50 transition-all duration-300 group card-hover">
               <CardHeader className="text-center">
-                <div className={`w-16 h-16 ${option.color} rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform`}>
-                  <option.icon className="w-8 h-8 text-white" />
+                <div className="w-16 h-16 gradient-warm rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform shadow-medium">
+                  <option.icon className="w-8 h-8 text-warm-50" />
                 </div>
-                <CardTitle className="text-white">{option.title}</CardTitle>
-                <CardDescription className="text-slate-400">{option.description}</CardDescription>
+                <CardTitle className="text-warm-800">{option.title}</CardTitle>
+                <CardDescription className="text-warm-600">{option.description}</CardDescription>
               </CardHeader>
               <CardContent className="text-center space-y-4">
                 <div className="space-y-2">
                   <div className="flex items-center justify-center space-x-2">
-                    <Clock className="w-4 h-4 text-slate-400" />
-                    <span className="text-sm text-slate-400">{option.availability}</span>
+                    <Clock className="w-4 h-4 text-warm-600" />
+                    <span className="text-sm text-warm-600">{option.availability}</span>
                   </div>
-                  <Badge variant="secondary" className="bg-slate-800/50">
+                  <Badge variant="secondary" className="bg-warm-200/50 text-warm-700 border border-warm-400/30">
                     Response: {option.responseTime}
                   </Badge>
                 </div>
-                <Button className="w-full glassmorphism-button">
+                <GlassmorphismButton className="w-full">
                   {option.action}
-                </Button>
+                </GlassmorphismButton>
               </CardContent>
             </Card>
           ))}
@@ -204,18 +204,18 @@ const Support = () => {
           transition={{ duration: 0.8, delay: 0.4 }}
         >
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold mb-4">Frequently Asked Questions</h2>
-            <p className="text-slate-400 mb-8">Find quick answers to common questions</p>
+            <h2 className="text-3xl font-bold mb-4 text-warm-800">Frequently Asked Questions</h2>
+            <p className="text-warm-600 mb-8">Find quick answers to common questions</p>
             
             {/* Search Bar */}
             <div className="max-w-md mx-auto mb-8">
               <div className="relative">
-                <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-slate-400" />
+                <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-warm-500" />
                 <Input
                   placeholder="Search FAQs..."
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
-                  className="pl-10 glassmorphism border-slate-700/50"
+                  className="pl-10 form-input"
                 />
               </div>
             </div>
@@ -223,15 +223,14 @@ const Support = () => {
             {/* Category Filters */}
             <div className="flex justify-center space-x-4 mb-8">
               {faqCategories.map((category) => (
-                <Button
+                <GlassmorphismButton
                   key={category.id}
                   variant={selectedCategory === category.id ? "default" : "outline"}
                   size="sm"
                   onClick={() => setSelectedCategory(category.id)}
-                  className={selectedCategory === category.id ? "glassmorphism-button" : "glassmorphism border-slate-700/50"}
                 >
                   {category.name} ({category.count})
-                </Button>
+                </GlassmorphismButton>
               ))}
             </div>
           </div>
@@ -239,15 +238,15 @@ const Support = () => {
           {/* FAQ List */}
           <div className="max-w-4xl mx-auto space-y-4">
             {filteredFaqs.map((faq, index) => (
-              <Card key={index} className="glassmorphism border-slate-700/50 hover:border-blue-400/30 transition-all duration-300">
+              <Card key={index} className="glassmorphism border-warm-400/30 hover:border-warm-500/50 transition-all duration-300 card-hover">
                 <CardHeader>
-                  <CardTitle className="text-lg text-white flex items-start space-x-3">
-                    <HelpCircle className="w-5 h-5 text-blue-400 mt-0.5 flex-shrink-0" />
+                  <CardTitle className="text-lg text-warm-800 flex items-start space-x-3">
+                    <HelpCircle className="w-5 h-5 text-warm-600 mt-0.5 flex-shrink-0" />
                     <span>{faq.question}</span>
                   </CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-slate-300 leading-relaxed pl-8">{faq.answer}</p>
+                  <p className="text-warm-700 leading-relaxed pl-8">{faq.answer}</p>
                 </CardContent>
               </Card>
             ))}
@@ -261,43 +260,43 @@ const Support = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.6 }}
         >
-          <h2 className="text-3xl font-bold mb-8">Additional Resources</h2>
+          <h2 className="text-3xl font-bold mb-8 text-warm-800">Additional Resources</h2>
           <div className="grid md:grid-cols-3 gap-8 mb-12">
             {resources.map((resource, index) => (
-              <Card key={index} className="glassmorphism border-slate-700/50 hover:border-blue-400/30 transition-all duration-300 group cursor-pointer">
+              <Card key={index} className="glassmorphism border-warm-400/30 hover:border-warm-500/50 transition-all duration-300 group cursor-pointer card-hover">
                 <CardHeader className="text-center">
-                  <div className="w-12 h-12 bg-gradient-to-r from-blue-500 to-purple-500 rounded-xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
-                    <resource.icon className="w-6 h-6 text-white" />
+                  <div className="w-12 h-12 gradient-warm rounded-xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform shadow-medium">
+                    <resource.icon className="w-6 h-6 text-warm-50" />
                   </div>
-                  <CardTitle className="text-white">{resource.title}</CardTitle>
-                  <CardDescription className="text-slate-400">{resource.description}</CardDescription>
+                  <CardTitle className="text-warm-800">{resource.title}</CardTitle>
+                  <CardDescription className="text-warm-600">{resource.description}</CardDescription>
                 </CardHeader>
               </Card>
             ))}
           </div>
 
           {/* Contact Form */}
-          <Card className="glassmorphism border-slate-700/50 max-w-2xl mx-auto">
+          <Card className="glassmorphism-strong border-warm-400/30 max-w-2xl mx-auto shadow-xl">
             <CardHeader className="text-center">
-              <CardTitle className="text-2xl text-white">Still Need Help?</CardTitle>
-              <CardDescription className="text-slate-400">
+              <CardTitle className="text-2xl text-warm-800">Still Need Help?</CardTitle>
+              <CardDescription className="text-warm-600">
                 Send us a message and we'll get back to you as soon as possible
               </CardDescription>
             </CardHeader>
             <CardContent className="space-y-6">
               <div className="grid md:grid-cols-2 gap-4">
-                <Input placeholder="Your Name" className="glassmorphism border-slate-700/50" />
-                <Input placeholder="Your Email" type="email" className="glassmorphism border-slate-700/50" />
+                <Input placeholder="Your Name" className="form-input" />
+                <Input placeholder="Your Email" type="email" className="form-input" />
               </div>
-              <Input placeholder="Subject" className="glassmorphism border-slate-700/50" />
+              <Input placeholder="Subject" className="form-input" />
               <Textarea 
                 placeholder="Describe your issue or question..." 
                 rows={5}
-                className="glassmorphism border-slate-700/50"
+                className="form-input"
               />
-              <Button className="w-full glassmorphism-button">
+              <GlassmorphismButton className="w-full">
                 Send Message
-              </Button>
+              </GlassmorphismButton>
             </CardContent>
           </Card>
         </motion.div>

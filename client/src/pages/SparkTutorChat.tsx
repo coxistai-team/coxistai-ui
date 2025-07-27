@@ -418,8 +418,8 @@ const SparkTutorChat = () => {
   const isAITyping = isLoading;
 
   return (
-    <main className="relative z-10 h-screen">
-      <div className="flex h-full bg-slate-900 pt-20">
+    <main className="relative z-10 h-screen bg-gradient-to-br from-beige-200 to-warm-200">
+      <div className="flex h-full pt-20">
         {/* Sidebar */}
         <AnimatePresence>
           {sidebarOpen && (
@@ -438,17 +438,17 @@ const SparkTutorChat = () => {
                 animate={{ x: 0, opacity: 1 }}
                 exit={{ x: -320, opacity: 0 }}
                 transition={{ duration: 0.3, ease: "easeInOut" }}
-                className="fixed top-20 bottom-0 left-0 w-80 bg-slate-800/98 backdrop-blur-xl border-r border-white/20 z-50 flex flex-col shadow-2xl"
+                className="fixed top-20 bottom-0 left-0 w-80 glassmorphism-strong backdrop-blur-xl border-r border-warm-400/30 z-50 flex flex-col shadow-2xl"
               >
                 {/* Sidebar Header */}
-                <div className="p-4 border-b border-white/10">
+                <div className="p-4 border-b border-warm-400/20">
                   <div className="flex items-center justify-between mb-4">
-                    <h2 className="text-xl font-bold text-white">Chat History</h2>
+                    <h2 className="text-xl font-bold text-warm-800">Chat History</h2>
                     <button
                       onClick={() => setSidebarOpen(false)}
-                      className="p-2 hover:bg-white/10 rounded-lg transition-colors"
+                      className="p-2 hover:bg-warm-200/50 rounded-lg transition-colors"
                     >
-                      <X className="w-5 h-5 text-slate-400" />
+                      <X className="w-5 h-5 text-warm-600" />
                     </button>
                   </div>
                   
@@ -461,12 +461,12 @@ const SparkTutorChat = () => {
                   </GlassmorphismButton>
 
                   <div className="relative">
-                    <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-slate-400" />
+                    <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-warm-500" />
                     <Input
                       placeholder="Search chats..."
                       value={searchQuery}
                       onChange={(e) => setSearchQuery(e.target.value)}
-                      className="pl-10 bg-slate-700/50 border-slate-600 text-white placeholder-slate-400"
+                      className="pl-10 form-input"
                     />
                   </div>
                 </div>
@@ -474,7 +474,7 @@ const SparkTutorChat = () => {
                 {/* Chat Sessions List */}
                 <div className="flex-1 overflow-y-auto p-4 space-y-2">
                   {filteredSessions.length === 0 ? (
-                    <div className="text-center text-slate-400 py-8">
+                    <div className="text-center text-warm-600 py-8">
                       <MessageSquare className="w-8 h-8 mx-auto mb-2 opacity-50" />
                       <p>No chats yet</p>
                       <p className="text-sm">Start a new conversation!</p>
@@ -485,8 +485,8 @@ const SparkTutorChat = () => {
                         key={session.id}
                         className={`group relative p-3 rounded-lg cursor-pointer transition-all duration-200 ${
                           currentSessionId === session.id
-                            ? 'bg-blue-500/20 border border-blue-500/30'
-                            : 'hover:bg-white/5'
+                            ? 'bg-warm-500/20 border border-warm-500/40'
+                            : 'hover:bg-warm-200/30'
                         }`}
                         onClick={() => switchToSession(session.id)}
                         whileHover={{ scale: 1.02 }}
@@ -494,10 +494,10 @@ const SparkTutorChat = () => {
                       >
                         <div className="flex items-start justify-between">
                           <div className="flex-1 min-w-0">
-                            <h3 className="font-medium text-white truncate text-sm">
+                            <h3 className="font-medium text-warm-800 truncate text-sm">
                               {session.title}
                             </h3>
-                            <p className="text-xs text-slate-400 mt-1">
+                            <p className="text-xs text-warm-600 mt-1">
                               {new Date(session.lastUpdated).toLocaleDateString()}
                             </p>
                           </div>
@@ -506,9 +506,9 @@ const SparkTutorChat = () => {
                               e.stopPropagation();
                               deleteSession(session.id);
                             }}
-                            className="opacity-0 group-hover:opacity-100 p-1 hover:bg-red-500/20 rounded transition-all"
+                            className="opacity-0 group-hover:opacity-100 p-1 hover:bg-destructive/20 rounded transition-all"
                           >
-                            <Trash2 className="w-4 h-4 text-red-400" />
+                            <Trash2 className="w-4 h-4 text-destructive" />
                           </button>
                         </div>
                       </motion.div>
@@ -523,29 +523,29 @@ const SparkTutorChat = () => {
         {/* Main Chat Container */}
         <div className={`flex-1 flex flex-col transition-all duration-300 ${sidebarOpen ? 'lg:ml-80 lg:pl-4' : ''}`}>
           {/* Mobile Header */}
-          <div className="lg:hidden flex items-center justify-between p-4 border-b border-white/10 bg-slate-800/50">
+          <div className="lg:hidden flex items-center justify-between p-4 border-b border-warm-400/20 glassmorphism">
             <button
               onClick={() => setSidebarOpen(true)}
-              className="p-2 hover:bg-white/10 rounded-lg transition-colors"
+              className="p-2 hover:bg-warm-200/50 rounded-lg transition-colors"
             >
-              <Menu className="w-6 h-6 text-white" />
+              <Menu className="w-6 h-6 text-warm-800" />
             </button>
-            <h1 className="text-xl font-bold text-white">SparkTutor Chat</h1>
+            <h1 className="text-xl font-bold text-warm-800">SparkTutor Chat</h1>
             <div className="w-10" />
           </div>
 
           {/* Desktop Header */}
-          <div className="hidden lg:flex items-center justify-between p-6 border-b border-white/10 bg-slate-800/50">
+          <div className="hidden lg:flex items-center justify-between p-6 border-b border-warm-400/20 glassmorphism">
             <div className="flex items-center space-x-4">
               <button
                 onClick={() => setSidebarOpen(!sidebarOpen)}
-                className="p-2 hover:bg-white/10 rounded-lg transition-colors"
+                className="p-2 hover:bg-warm-200/50 rounded-lg transition-colors"
               >
-                <Menu className="w-6 h-6 text-white" />
+                <Menu className="w-6 h-6 text-warm-800" />
               </button>
               <div>
-                <h1 className="text-2xl font-bold text-white">SparkTutor Chat</h1>
-                <p className="text-slate-400">Your AI learning companion is here to help</p>
+                <h1 className="text-2xl font-bold text-warm-800">SparkTutor Chat</h1>
+                <p className="text-warm-600">Your AI learning companion is here to help</p>
               </div>
             </div>
             <GlassmorphismButton onClick={createNewChat} variant="outline">
@@ -555,21 +555,21 @@ const SparkTutorChat = () => {
           </div>
 
           {/* Chat Messages Area */}
-          <div className="flex-1 flex flex-col bg-slate-900">
+          <div className="flex-1 flex flex-col bg-gradient-to-b from-beige-100 to-warm-100">
             {/* Chat Header */}
-            <div className="border-b border-white/10 p-4 flex items-center justify-between bg-slate-800/30">
+            <div className="border-b border-warm-400/20 p-4 flex items-center justify-between glassmorphism">
               <div className="flex items-center space-x-3">
-                <div className="w-10 h-10 bg-gradient-to-r from-blue-500 to-green-500 rounded-full flex items-center justify-center">
-                  <Sparkles className="w-5 h-5 text-white" />
+                <div className="w-10 h-10 gradient-warm rounded-full flex items-center justify-center shadow-medium">
+                  <Sparkles className="w-5 h-5 text-warm-50" />
                 </div>
                 <div>
-                  <h3 className="font-semibold text-white">SparkTutor AI</h3>
-                  <p className="text-sm text-slate-400">Online • Ready to help</p>
+                  <h3 className="font-semibold text-warm-800">SparkTutor AI</h3>
+                  <p className="text-sm text-warm-600">Online • Ready to help</p>
                 </div>
               </div>
               <div className="flex space-x-2">
-                <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
-                <span className="text-xs text-slate-400">AI Ready</span>
+                <div className="w-2 h-2 bg-beige-500 rounded-full animate-pulse"></div>
+                <span className="text-xs text-warm-600">AI Ready</span>
               </div>
             </div>
             
@@ -584,15 +584,15 @@ const SparkTutorChat = () => {
                   transition={{ delay: index * 0.1 }}
                 >
                   {message.isAI && (
-                    <div className="w-8 h-8 bg-gradient-to-r from-blue-500 to-green-500 rounded-full flex items-center justify-center flex-shrink-0">
-                      <Sparkles className="w-4 h-4 text-white" />
+                    <div className="w-8 h-8 gradient-warm rounded-full flex items-center justify-center flex-shrink-0 shadow-soft">
+                      <Sparkles className="w-4 h-4 text-warm-50" />
                     </div>
                   )}
                   
                   <div className={`max-w-lg p-3 rounded-lg ${
                     message.isAI 
                       ? 'glassmorphism rounded-tl-none' 
-                      : 'bg-blue-500 rounded-tr-none'
+                      : 'gradient-warm rounded-tr-none shadow-medium'
                   }`}>
                     {/* Attached Files */}
                     {message.attachedFiles && message.attachedFiles.length > 0 && (
@@ -600,10 +600,10 @@ const SparkTutorChat = () => {
                         {message.attachedFiles.map((file, fileIndex) => (
                           <div
                             key={fileIndex}
-                            className="flex items-center space-x-2 p-2 bg-white/10 rounded-lg"
+                            className="flex items-center space-x-2 p-2 bg-warm-200/30 rounded-lg"
                           >
                             {getFileIcon(file.type)}
-                            <span className="text-sm text-white truncate flex-1">
+                            <span className={`text-sm truncate flex-1 ${message.isAI ? 'text-warm-800' : 'text-warm-50'}`}>
                               {file.file.name}
                             </span>
                             {file.preview && (
@@ -618,19 +618,21 @@ const SparkTutorChat = () => {
                       </div>
                     )}
                     <div 
-                      className={`text-white leading-relaxed ${message.isAI ? 'formatted-content' : ''}`}
+                      className={`leading-relaxed ${message.isAI ? 'formatted-content text-warm-800' : 'text-warm-50'}`}
                       dangerouslySetInnerHTML={{ 
                         __html: message.isAI ? formatMessage(message.content) : formatMessage(message.content)
                       }}
                     />
-                    <p className="text-xs text-slate-400 mt-3 border-t border-white/10 pt-2">
+                    <p className={`text-xs mt-3 border-t pt-2 ${
+                      message.isAI ? 'text-warm-600 border-warm-400/20' : 'text-warm-200 border-warm-300/30'
+                    }`}>
                       {message.timestamp}
                     </p>
                   </div>
                   
                   {!message.isAI && (
-                    <div className="w-8 h-8 bg-gray-500 rounded-full flex items-center justify-center flex-shrink-0">
-                      <User className="w-4 h-4 text-white" />
+                    <div className="w-8 h-8 bg-warm-600 rounded-full flex items-center justify-center flex-shrink-0 shadow-soft">
+                      <User className="w-4 h-4 text-warm-50" />
                     </div>
                   )}
                 </motion.div>
@@ -644,16 +646,16 @@ const SparkTutorChat = () => {
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -20 }}
                 >
-                  <div className="w-8 h-8 bg-gradient-to-r from-blue-500 to-green-500 rounded-full flex items-center justify-center flex-shrink-0">
-                    <Sparkles className="w-4 h-4 text-white" />
+                  <div className="w-8 h-8 gradient-warm rounded-full flex items-center justify-center flex-shrink-0 shadow-soft">
+                    <Sparkles className="w-4 h-4 text-warm-50" />
                   </div>
                   <div className="max-w-lg p-3 rounded-lg glassmorphism rounded-tl-none">
                     <div className="flex space-x-1">
-                      <div className="w-2 h-2 bg-blue-400 rounded-full animate-bounce" style={{ animationDelay: '0ms' }}></div>
-                      <div className="w-2 h-2 bg-blue-400 rounded-full animate-bounce" style={{ animationDelay: '150ms' }}></div>
-                      <div className="w-2 h-2 bg-blue-400 rounded-full animate-bounce" style={{ animationDelay: '300ms' }}></div>
+                      <div className="w-2 h-2 bg-warm-600 rounded-full animate-bounce" style={{ animationDelay: '0ms' }}></div>
+                      <div className="w-2 h-2 bg-warm-600 rounded-full animate-bounce" style={{ animationDelay: '150ms' }}></div>
+                      <div className="w-2 h-2 bg-warm-600 rounded-full animate-bounce" style={{ animationDelay: '300ms' }}></div>
                     </div>
-                    <p className="text-xs text-slate-400 mt-2">SparkTutor is typing...</p>
+                    <p className="text-xs text-warm-600 mt-2">SparkTutor is typing...</p>
                   </div>
                 </motion.div>
               )}
@@ -662,27 +664,27 @@ const SparkTutorChat = () => {
             </div>
             
             {/* Chat Input */}
-            <div className="border-t border-white/10 p-4">
+            <div className="border-t border-warm-400/20 p-4 glassmorphism">
               {/* Recording Indicator */}
               {isRecording && (
-                <div className="mb-3 p-3 glassmorphism rounded-lg border border-red-400/30">
+                <div className="mb-3 p-3 glassmorphism rounded-lg border border-destructive/30">
                   <div className="flex items-center justify-between">
                     <div className="flex items-center space-x-3">
-                      <div className="w-4 h-4 bg-red-500 rounded-full animate-pulse"></div>
-                      <span className="text-white font-medium">Recording...</span>
-                      <span className="text-red-400 font-mono">{formatTime(recordingTime)}</span>
+                      <div className="w-4 h-4 bg-destructive rounded-full animate-pulse"></div>
+                      <span className="text-warm-800 font-medium">Recording...</span>
+                      <span className="text-destructive font-mono">{formatTime(recordingTime)}</span>
                     </div>
                     <div className="flex space-x-2">
                       <button
                         onClick={cancelRecording}
-                        className="p-2 hover:bg-white/10 rounded-full transition-colors text-slate-400 hover:text-white"
+                        className="p-2 hover:bg-warm-200/50 rounded-full transition-colors text-warm-600 hover:text-warm-800"
                         title="Cancel Recording"
                       >
                         <X className="w-4 h-4" />
                       </button>
                       <button
                         onClick={stopRecording}
-                        className="p-2 hover:bg-white/10 rounded-full transition-colors text-red-400 hover:text-red-300"
+                        className="p-2 hover:bg-warm-200/50 rounded-full transition-colors text-destructive hover:text-destructive/80"
                         title="Stop Recording"
                       >
                         <Square className="w-4 h-4" />
@@ -704,28 +706,28 @@ const SparkTutorChat = () => {
                           className="w-12 h-12 object-cover rounded-lg"
                         />
                       ) : (
-                        <div className="w-12 h-12 bg-white/10 rounded-lg flex items-center justify-center">
+                        <div className="w-12 h-12 bg-warm-200/50 rounded-lg flex items-center justify-center">
                           {getFileIcon(attachedFile.type)}
                         </div>
                       )}
                       <div>
-                        <p className="text-sm font-medium text-white truncate max-w-xs">
+                        <p className="text-sm font-medium text-warm-800 truncate max-w-xs">
                           {attachedFile.file.name}
                         </p>
-                        <p className="text-xs text-slate-400">
+                        <p className="text-xs text-warm-600">
                           {(attachedFile.file.size / 1024 / 1024).toFixed(2)} MB • {attachedFile.type}
                           {attachedFile.type === 'audio' && (
-                            <span className="ml-2 text-green-400">🎵 Voice Recording</span>
+                            <span className="ml-2 text-beige-500">🎵 Voice Recording</span>
                           )}
                         </p>
                       </div>
                     </div>
                     <button
                       onClick={removeAttachedFile}
-                      className="p-1 hover:bg-white/10 rounded-full transition-colors"
+                      className="p-1 hover:bg-warm-200/50 rounded-full transition-colors"
                       disabled={isLoading}
                     >
-                      <X className="w-4 h-4 text-slate-400" />
+                      <X className="w-4 h-4 text-warm-600" />
                     </button>
                   </div>
                 </div>
@@ -742,7 +744,7 @@ const SparkTutorChat = () => {
                         ? "Add a question about your file (optional)..." 
                         : "Ask me anything about your studies..."
                     }
-                    className="w-full bg-transparent resize-none outline-none placeholder-slate-400 text-white"
+                    className="w-full bg-transparent resize-none outline-none placeholder-warm-500 text-warm-800"
                     rows={1}
                     disabled={isLoading || isRecording}
                   />
@@ -750,8 +752,8 @@ const SparkTutorChat = () => {
                 <div className="flex space-x-2">
                   <GlassmorphismButton 
                     size="sm" 
-                    variant={isRecording ? "default" : "outline"}
-                    className={`p-3 ${isRecording ? 'bg-red-500 hover:bg-red-600' : ''}`}
+                    variant="outline"
+                    className={`p-3 ${isRecording ? 'bg-destructive hover:bg-destructive/90 text-destructive-foreground border-destructive' : ''}`}
                     title={isRecording ? "Recording... Click to stop" : "Record Voice Message"}
                     onClick={isRecording ? stopRecording : startRecording}
                     disabled={isLoading}
@@ -779,7 +781,7 @@ const SparkTutorChat = () => {
                   </GlassmorphismButton>
                 </div>
               </div>
-              <p className="text-xs text-slate-400 mt-2">
+              <p className="text-xs text-warm-600 mt-2">
                 {isRecording 
                   ? "Recording in progress... Click the stop button or mic button to finish recording"
                   : attachedFile 
@@ -792,9 +794,9 @@ const SparkTutorChat = () => {
 
           {/* File Upload Dialog */}
           <Dialog open={showFileDialog} onOpenChange={setShowFileDialog}>
-            <DialogContent className="max-w-2xl bg-slate-900 border-white/20">
+            <DialogContent className="max-w-2xl glassmorphism-strong border-warm-400/30">
               <DialogHeader>
-                <DialogTitle className="text-white flex items-center space-x-2">
+                <DialogTitle className="text-warm-800 flex items-center space-x-2">
                   <Paperclip className="w-5 h-5" />
                   <span>Attach Files for Analysis</span>
                 </DialogTitle>
@@ -816,7 +818,6 @@ const SparkTutorChat = () => {
                   <GlassmorphismButton
                     onClick={() => setShowFileDialog(false)}
                     disabled={!attachedFile}
-                    className="bg-gradient-to-r from-blue-500 to-green-500"
                   >
                     Attach File{attachedFile ? " (1)" : ""}
                   </GlassmorphismButton>

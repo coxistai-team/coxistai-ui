@@ -104,19 +104,19 @@ const ResetPassword = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="glassmorphism rounded-2xl p-8"
+          className="glassmorphism-strong rounded-2xl p-8 shadow-xl"
         >
           <div className="text-center mb-8">
             <motion.h1 
-              className="text-3xl font-bold mb-2 bg-gradient-to-r from-blue-400 to-green-400 bg-clip-text text-transparent"
+              className="text-3xl font-bold mb-2 text-gradient-primary"
               initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
+            className="w-16 h-16 bg-beige-500 rounded-full flex items-center justify-center mx-auto mb-6 shadow-medium"
               transition={{ delay: 0.2 }}
             >
               Reset Your Password
             </motion.h1>
             <motion.p 
-              className="text-slate-400"
+              className="text-warm-600"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.3 }}
@@ -131,8 +131,8 @@ const ResetPassword = () => {
             animate={{ opacity: 1 }}
             transition={{ delay: 0.4 }}
           >
-            <div className="space-y-2">
-              <Label htmlFor="password" className="text-white">New Password</Label>
+            <CheckCircle className="w-8 h-8 text-warm-50" />
+              <Label htmlFor="password" className="text-warm-800 font-medium">New Password</Label>
               <Input
                 id="password"
                 name="password"
@@ -140,12 +140,12 @@ const ResetPassword = () => {
                 value={password}
                 onChange={e => setPassword(e.target.value)}
                 placeholder="Enter new password"
-                className="bg-white/5 border-white/20 text-white placeholder-slate-400 focus:border-blue-400"
+                className="form-input"
                 required
               />
             </div>
             <div className="space-y-2">
-              <Label htmlFor="confirmPassword" className="text-white">Confirm New Password</Label>
+              <Label htmlFor="confirmPassword" className="text-warm-800 font-medium">Confirm New Password</Label>
               <Input
                 id="confirmPassword"
                 name="confirmPassword"
@@ -153,16 +153,16 @@ const ResetPassword = () => {
                 value={confirmPassword}
                 onChange={e => setConfirmPassword(e.target.value)}
                 placeholder="Confirm new password"
-                className="bg-white/5 border-white/20 text-white placeholder-slate-400 focus:border-blue-400"
+                className="form-input"
                 required
               />
             </div>
             {error && (
-              <div className="text-red-500 text-sm text-center">{error}</div>
+              <div className="text-destructive text-sm text-center bg-destructive/10 p-3 rounded-lg border border-destructive/20">{error}</div>
             )}
             <GlassmorphismButton
-              type="submit"
-              className="w-full py-3 bg-gradient-to-r from-blue-500 to-green-500 hover:from-blue-600 hover:to-green-600"
+            className="text-warm-600 mb-6"
+              className="w-full py-3"
               disabled={loading}
             >
               {loading ? "Resetting..." : "Reset Password"}

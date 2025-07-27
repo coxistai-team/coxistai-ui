@@ -95,7 +95,7 @@ const Navigation = () => {
                       <AnimatePresence>
                         {activeDropdown === item.id && (
                           <motion.div
-                            className="absolute top-full left-0 mt-2 w-80 glassmorphism-strong rounded-xl border border-slate-200/20 dark:border-white/10 shadow-2xl overflow-hidden"
+                            className="absolute top-full left-0 mt-2 w-80 glassmorphism-strong rounded-xl border border-warm-400/30 shadow-xl overflow-hidden"
                             initial={{ opacity: 0, y: -10 }}
                             animate={{ opacity: 1, y: 0 }}
                             exit={{ opacity: 0, y: -10 }}
@@ -106,14 +106,14 @@ const Navigation = () => {
                                 <motion.button
                                   key={dropdownItem.id}
                                   className={`w-full text-left p-4 rounded-lg transition-all duration-200 ${
-                                    isActive(dropdownItem.path) ? 'bg-blue-500/20 text-blue-400' : 'text-slate-900 dark:text-white hover:bg-slate-100/50 dark:hover:bg-white/10'
+                                    isActive(dropdownItem.path) ? 'bg-warm-500/20 text-warm-700' : 'text-warm-900 hover:bg-warm-200/50'
                                   }`}
                                   onClick={() => handleNavigation(dropdownItem.path)}
                                   whileHover={{ scale: 1.02 }}
                                   whileTap={{ scale: 0.98 }}
                                 >
                                   <div className="font-medium">{dropdownItem.label}</div>
-                                  <div className="text-xs text-slate-500 dark:text-slate-400 mt-1">{dropdownItem.description}</div>
+                                  <div className="text-xs text-warm-600 mt-1">{dropdownItem.description}</div>
                                 </motion.button>
                               ))}
                             </div>
@@ -143,7 +143,7 @@ const Navigation = () => {
                 ) : (
                   <>
                     <motion.button
-                      className="px-4 py-2 text-slate-900 dark:text-white hover:text-blue-400 transition-colors"
+                      className="px-4 py-2 text-warm-800 hover:text-warm-600 transition-colors font-medium"
                       onClick={() => handleNavigation('/login')}
                       whileHover={{ scale: 1.05 }}
                       whileTap={{ scale: 0.95 }}
@@ -151,7 +151,7 @@ const Navigation = () => {
                       Login
                     </motion.button>
                     <motion.button
-                      className="glassmorphism-button px-6 py-3 rounded-xl font-semibold bg-gradient-to-r from-blue-500 to-green-500 text-white"
+                      className="glassmorphism-button px-6 py-3 rounded-xl font-semibold"
                       onClick={() => handleNavigation('/signup')}
                       whileHover={{ scale: 1.05 }}
                       whileTap={{ scale: 0.95 }}
@@ -167,7 +167,7 @@ const Navigation = () => {
             <div className="lg:hidden">
               <motion.button
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                className="text-slate-900 dark:text-white p-3 glassmorphism rounded-xl"
+                className="text-warm-800 p-3 glassmorphism rounded-xl"
                 whileTap={{ scale: 0.95 }}
               >
                 {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
@@ -186,7 +186,7 @@ const Navigation = () => {
                 onClick={() => setMobileMenuOpen(false)}
               />
               <motion.div
-                className="lg:hidden glassmorphism-strong mt-2 mx-4 rounded-xl border border-slate-200/20 dark:border-white/10 overflow-hidden relative z-50 max-h-[calc(100vh-6rem)] overflow-y-auto"
+                className="lg:hidden glassmorphism-strong mt-2 mx-4 rounded-xl border border-warm-400/30 overflow-hidden relative z-50 max-h-[calc(100vh-6rem)] overflow-y-auto custom-scrollbar"
                 initial={{ opacity: 0, height: 0 }}
                 animate={{ opacity: 1, height: 'auto' }}
                 exit={{ opacity: 0, height: 0 }}
@@ -198,7 +198,7 @@ const Navigation = () => {
                       {'dropdown' in item ? (
                         <div>
                           <button
-                            className="w-full text-left px-4 py-3 rounded-lg font-semibold text-slate-900 dark:text-white hover:bg-slate-100/50 dark:hover:bg-white/10 transition-colors"
+                            className="w-full text-left px-4 py-3 rounded-lg font-semibold text-warm-800 hover:bg-warm-200/50 transition-colors"
                             onClick={() => handleDropdownToggle(item.id)}
                           >
                             <div className="flex items-center justify-between">
@@ -221,12 +221,12 @@ const Navigation = () => {
                                   <button
                                     key={dropdownItem.id}
                                     className={`w-full text-left px-4 py-3 rounded-lg transition-all duration-200 ${
-                                      isActive(dropdownItem.path) ? 'bg-blue-500/20 text-blue-400' : 'text-slate-600 dark:text-slate-300 hover:bg-slate-100/50 dark:hover:bg-white/10'
+                                      isActive(dropdownItem.path) ? 'bg-warm-500/20 text-warm-700' : 'text-warm-700 hover:bg-warm-200/50'
                                     }`}
                                     onClick={() => handleNavigation(dropdownItem.path)}
                                   >
                                     <div className="font-medium">{dropdownItem.label}</div>
-                                    <div className="text-xs text-slate-500 dark:text-slate-400 mt-1">{dropdownItem.description}</div>
+                                    <div className="text-xs text-warm-600 mt-1">{dropdownItem.description}</div>
                                   </button>
                                 ))}
                               </motion.div>
@@ -236,7 +236,7 @@ const Navigation = () => {
                       ) : (
                         <button
                           className={`w-full text-left px-4 py-3 rounded-lg transition-all duration-300 ${
-                            'path' in item && isActive(item.path) ? 'bg-blue-500/20 text-blue-400' : 'text-slate-900 dark:text-white hover:bg-slate-100/50 dark:hover:bg-white/10'
+                            'path' in item && isActive(item.path) ? 'bg-warm-500/20 text-warm-700' : 'text-warm-800 hover:bg-warm-200/50'
                           }`}
                           onClick={() => 'path' in item && handleNavigation(item.path)}
                         >
@@ -253,13 +253,13 @@ const Navigation = () => {
                     ) : (
                       <div className="flex space-x-2">
                         <button
-                          className="flex-1 px-4 py-3 rounded-lg font-semibold text-slate-900 dark:text-white border border-slate-300 dark:border-white/20 hover:bg-slate-100/50 dark:hover:bg-white/10 transition-colors"
+                          className="flex-1 px-4 py-3 rounded-lg font-semibold text-warm-800 border border-warm-400/40 hover:bg-warm-200/50 transition-colors"
                           onClick={() => handleNavigation('/login')}
                         >
                           Login
                         </button>
                         <button
-                          className="flex-1 glassmorphism-button px-4 py-3 rounded-lg font-semibold bg-gradient-to-r from-blue-500 to-green-500 text-white"
+                          className="flex-1 glassmorphism-button px-4 py-3 rounded-lg font-semibold"
                           onClick={() => handleNavigation('/signup')}
                         >
                           Sign Up

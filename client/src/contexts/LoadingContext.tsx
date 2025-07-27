@@ -54,7 +54,7 @@ export function LoadingProvider({ children }: LoadingProviderProps) {
       <AnimatePresence>
         {isLoading && (
           <motion.div 
-            className="fixed inset-0 bg-white/95 dark:bg-slate-900/95 backdrop-blur-sm flex items-center justify-center z-50"
+            className="fixed inset-0 bg-beige-200/95 backdrop-blur-sm flex items-center justify-center z-50"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
@@ -63,7 +63,7 @@ export function LoadingProvider({ children }: LoadingProviderProps) {
             <div className="text-center">
               <div className="relative w-16 h-16 mx-auto mb-4">
                 <motion.div
-                  className="absolute inset-0 border-4 border-blue-500/20 rounded-full"
+                  className="absolute inset-0 border-4 border-warm-500/30 rounded-full"
                   initial={{ scale: 0.8, opacity: 0.5 }}
                   animate={{ scale: 1.2, opacity: 0 }}
                   transition={{
@@ -73,7 +73,7 @@ export function LoadingProvider({ children }: LoadingProviderProps) {
                   }}
                 />
                 <motion.div
-                  className="absolute inset-0 border-4 border-t-blue-500 border-r-transparent border-b-transparent border-l-transparent rounded-full"
+                  className="absolute inset-0 border-4 border-t-warm-600 border-r-transparent border-b-transparent border-l-transparent rounded-full"
                   animate={{ rotate: 360 }}
                   transition={{
                     duration: 1,
@@ -83,7 +83,7 @@ export function LoadingProvider({ children }: LoadingProviderProps) {
                 />
               </div>
               <motion.div
-                className="text-slate-900 dark:text-white text-lg font-medium"
+                className="text-warm-800 text-lg font-medium"
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.2 }}

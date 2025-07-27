@@ -95,7 +95,7 @@ const Signup = () => {
           className="mb-6"
         >
           <Link href="/">
-            <Button variant="ghost" size="sm" className="text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white">
+            <Button variant="ghost" size="sm" className="text-warm-600 hover:text-warm-800 hover:bg-warm-200/50 transition-all duration-300">
               <ArrowLeft className="w-4 h-4 mr-2" />
               Back to Home
             </Button>
@@ -107,12 +107,12 @@ const Signup = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="glassmorphism rounded-2xl p-8"
+          className="glassmorphism-strong rounded-2xl p-8 shadow-xl"
         >
           {/* Header */}
           <div className="text-center mb-8">
             <motion.h1 
-              className="text-3xl font-bold mb-2 bg-gradient-to-r from-blue-400 to-green-400 bg-clip-text text-transparent"
+              className="text-3xl font-bold mb-2 text-gradient-primary"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.2 }}
@@ -120,7 +120,7 @@ const Signup = () => {
               Join Coexist AI
             </motion.h1>
             <motion.p 
-              className="text-slate-600 dark:text-slate-400"
+              className="text-warm-600"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.3 }}
@@ -138,28 +138,28 @@ const Signup = () => {
           >
             <GlassmorphismButton
               variant="outline"
-              className="w-full py-3 flex items-center justify-center space-x-3 text-slate-900 dark:text-white"
+              className="w-full py-3 flex items-center justify-center space-x-3"
               onClick={() => handleSocialSignup("google")}
             >
-              <FaGoogle className="w-5 h-5 text-red-500" />
+              <FaGoogle className="w-5 h-5 text-warm-600" />
               <span>Sign up with Google</span>
             </GlassmorphismButton>
 
             <GlassmorphismButton
               variant="outline"
-              className="w-full py-3 flex items-center justify-center space-x-3 text-slate-900 dark:text-white"
+              className="w-full py-3 flex items-center justify-center space-x-3"
               onClick={() => handleSocialSignup("github")}
             >
-              <FaGithub className="w-5 h-5 text-slate-900 dark:text-white" />
+              <FaGithub className="w-5 h-5 text-warm-800" />
               <span>Sign up with GitHub</span>
             </GlassmorphismButton>
 
             <GlassmorphismButton
               variant="outline"
-              className="w-full py-3 flex items-center justify-center space-x-3 text-slate-900 dark:text-white"
+              className="w-full py-3 flex items-center justify-center space-x-3"
               onClick={() => handleSocialSignup("apple")}
             >
-              <FaApple className="w-5 h-5 text-slate-900 dark:text-white" />
+              <FaApple className="w-5 h-5 text-warm-800" />
               <span>Sign up with Apple</span>
             </GlassmorphismButton>
           </motion.div>
@@ -171,9 +171,9 @@ const Signup = () => {
             animate={{ opacity: 1 }}
             transition={{ delay: 0.5 }}
           >
-            <Separator className="flex-1 bg-slate-300 dark:bg-white/20" />
-            <span className="px-4 text-sm text-slate-600 dark:text-slate-400">or</span>
-            <Separator className="flex-1 bg-slate-300 dark:bg-white/20" />
+            <Separator className="flex-1 bg-warm-400/40" />
+            <span className="px-4 text-sm text-warm-600">or</span>
+            <Separator className="flex-1 bg-warm-400/40" />
           </motion.div>
 
           {/* Signup Form */}
@@ -186,9 +186,9 @@ const Signup = () => {
           >
             {/* Full Name Field */}
             <div className="space-y-2">
-              <Label htmlFor="fullName" className="text-slate-900 dark:text-white">Full Name</Label>
+              <Label htmlFor="fullName" className="text-warm-800 font-medium">Full Name</Label>
               <div className="relative">
-                <User className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-slate-500 dark:text-slate-400" />
+                <User className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-warm-500" />
                 <Input
                   id="fullName"
                   name="fullName"
@@ -196,20 +196,20 @@ const Signup = () => {
                   value={formData.fullName}
                   onChange={handleInputChange}
                   placeholder="Enter your full name"
-                  className="pl-10 bg-white dark:bg-white/5 border-slate-300 dark:border-white/20 text-slate-900 dark:text-white placeholder-slate-500 dark:placeholder-slate-400 focus:border-blue-500 dark:focus:border-blue-400"
+                  className="pl-10 form-input"
                   required
                 />
               </div>
               {validationErrors.fullName && (
-                <div className="text-red-500 text-xs mt-1">{validationErrors.fullName}</div>
+                <div className="text-destructive text-xs mt-1">{validationErrors.fullName}</div>
               )}
             </div>
 
             {/* Username Field */}
             <div className="space-y-2">
-              <Label htmlFor="username" className="text-slate-900 dark:text-white">Username</Label>
+              <Label htmlFor="username" className="text-warm-800 font-medium">Username</Label>
               <div className="relative">
-                <User className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-slate-500 dark:text-slate-400" />
+                <User className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-warm-500" />
                 <Input
                   id="username"
                   name="username"
@@ -217,20 +217,20 @@ const Signup = () => {
                   value={formData.username}
                   onChange={handleInputChange}
                   placeholder="Choose a username"
-                  className="pl-10 bg-white dark:bg-white/5 border-slate-300 dark:border-white/20 text-slate-900 dark:text-white placeholder-slate-500 dark:placeholder-slate-400 focus:border-blue-500 dark:focus:border-blue-400"
+                  className="pl-10 form-input"
                   required
                 />
               </div>
               {validationErrors.username && (
-                <div className="text-red-500 text-xs mt-1">{validationErrors.username}</div>
+                <div className="text-destructive text-xs mt-1">{validationErrors.username}</div>
               )}
             </div>
 
             {/* Email Field */}
             <div className="space-y-2">
-              <Label htmlFor="email" className="text-slate-900 dark:text-white">Email Address</Label>
+              <Label htmlFor="email" className="text-warm-800 font-medium">Email Address</Label>
               <div className="relative">
-                <Mail className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-slate-500 dark:text-slate-400" />
+                <Mail className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-warm-500" />
                 <Input
                   id="email"
                   name="email"
@@ -238,20 +238,20 @@ const Signup = () => {
                   value={formData.email}
                   onChange={handleInputChange}
                   placeholder="Enter your email address"
-                  className="pl-10 bg-white dark:bg-white/5 border-slate-300 dark:border-white/20 text-slate-900 dark:text-white placeholder-slate-500 dark:placeholder-slate-400 focus:border-blue-500 dark:focus:border-blue-400"
+                  className="pl-10 form-input"
                   required
                 />
               </div>
               {validationErrors.email && (
-                <div className="text-red-500 text-xs mt-1">{validationErrors.email}</div>
+                <div className="text-destructive text-xs mt-1">{validationErrors.email}</div>
               )}
             </div>
 
             {/* Password Field */}
             <div className="space-y-2">
-              <Label htmlFor="password" className="text-slate-900 dark:text-white">Password</Label>
+              <Label htmlFor="password" className="text-warm-800 font-medium">Password</Label>
               <div className="relative">
-                <Lock className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-slate-500 dark:text-slate-400" />
+                <Lock className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-warm-500" />
                 <Input
                   id="password"
                   name="password"
@@ -259,27 +259,27 @@ const Signup = () => {
                   value={formData.password}
                   onChange={handleInputChange}
                   placeholder="Create a password"
-                  className="pl-10 pr-10 bg-white dark:bg-white/5 border-slate-300 dark:border-white/20 text-slate-900 dark:text-white placeholder-slate-500 dark:placeholder-slate-400 focus:border-blue-500 dark:focus:border-blue-400"
+                  className="pl-10 pr-10 form-input"
                   required
                 />
                 <button
                   type="button"
                   onClick={() => setShowPassword(!showPassword)}
-                  className="absolute right-3 top-1/2 transform -translate-y-1/2 text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white"
+                  className="absolute right-3 top-1/2 transform -translate-y-1/2 text-warm-500 hover:text-warm-700 transition-colors"
                 >
                   {showPassword ? <EyeOff className="w-5 h-5" /> : <Eye className="w-5 h-5" />}
                 </button>
               </div>
               {validationErrors.password && (
-                <div className="text-red-500 text-xs mt-1">{validationErrors.password}</div>
+                <div className="text-destructive text-xs mt-1">{validationErrors.password}</div>
               )}
             </div>
 
             {/* Confirm Password Field */}
             <div className="space-y-2">
-              <Label htmlFor="confirmPassword" className="text-slate-900 dark:text-white">Confirm Password</Label>
+              <Label htmlFor="confirmPassword" className="text-warm-800 font-medium">Confirm Password</Label>
               <div className="relative">
-                <Lock className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-slate-500 dark:text-slate-400" />
+                <Lock className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-warm-500" />
                 <Input
                   id="confirmPassword"
                   name="confirmPassword"
@@ -287,19 +287,19 @@ const Signup = () => {
                   value={formData.confirmPassword}
                   onChange={handleInputChange}
                   placeholder="Confirm your password"
-                  className="pl-10 pr-10 bg-white dark:bg-white/5 border-slate-300 dark:border-white/20 text-slate-900 dark:text-white placeholder-slate-500 dark:placeholder-slate-400 focus:border-blue-500 dark:focus:border-blue-400"
+                  className="pl-10 pr-10 form-input"
                   required
                 />
                 <button
                   type="button"
                   onClick={() => setShowConfirmPassword(!showConfirmPassword)}
-                  className="absolute right-3 top-1/2 transform -translate-y-1/2 text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white"
+                  className="absolute right-3 top-1/2 transform -translate-y-1/2 text-warm-500 hover:text-warm-700 transition-colors"
                 >
                   {showConfirmPassword ? <EyeOff className="w-5 h-5" /> : <Eye className="w-5 h-5" />}
                 </button>
               </div>
               {validationErrors.confirmPassword && (
-                <div className="text-red-500 text-xs mt-1">{validationErrors.confirmPassword}</div>
+                <div className="text-destructive text-xs mt-1">{validationErrors.confirmPassword}</div>
               )}
             </div>
 
@@ -309,18 +309,18 @@ const Signup = () => {
                 id="terms"
                 checked={agreeToTerms}
                 onCheckedChange={(checked) => setAgreeToTerms(checked as boolean)}
-                className="mt-1 border-slate-300 dark:border-white/20 data-[state=checked]:bg-blue-500"
+                className="mt-1 border-warm-400 data-[state=checked]:bg-warm-600"
               />
-              <Label htmlFor="terms" className="text-sm text-slate-600 dark:text-slate-400 leading-5">
+              <Label htmlFor="terms" className="text-sm text-warm-600 leading-5">
                 I agree to the{" "}
                 <Link href="/terms">
-                  <span className="text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 cursor-pointer">
+                  <span className="text-warm-700 hover:text-warm-800 cursor-pointer font-medium">
                     Terms of Service
                   </span>
                 </Link>
                 {" "}and{" "}
                 <Link href="/privacy">
-                  <span className="text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 cursor-pointer">
+                  <span className="text-warm-700 hover:text-warm-800 cursor-pointer font-medium">
                     Privacy Policy
                   </span>
                 </Link>
@@ -329,12 +329,12 @@ const Signup = () => {
 
             {/* Error Message */}
             {formError && (
-              <div className="text-red-500 text-sm text-center">{formError}</div>
+              <div className="text-destructive text-sm text-center bg-destructive/10 p-3 rounded-lg border border-destructive/20">{formError}</div>
             )}
             {/* Signup Button */}
             <GlassmorphismButton
               type="submit"
-              className="w-full py-3 bg-gradient-to-r from-blue-500 to-green-500 hover:from-blue-600 hover:to-green-600"
+              className="w-full py-3"
               disabled={isSigningUp}
             >
               {isSigningUp ? "Signing up..." : "Create Account"}
@@ -348,10 +348,10 @@ const Signup = () => {
             animate={{ opacity: 1 }}
             transition={{ delay: 0.7 }}
           >
-            <p className="text-slate-600 dark:text-slate-400">
+            <p className="text-warm-600">
               Already have an account?{" "}
               <Link href="/login">
-                <span className="text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 cursor-pointer transition-colors">
+                <span className="text-warm-700 hover:text-warm-800 cursor-pointer transition-colors font-medium">
                   Sign in here
                 </span>
               </Link>

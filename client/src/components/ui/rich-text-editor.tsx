@@ -253,16 +253,16 @@ export default function RichTextEditor({ content = '', onUpdate, title = 'Untitl
   }
 
   return (
-    <div className={`glassmorphism rounded-xl overflow-hidden ${className}`}>
+    <div className={`glassmorphism-strong rounded-xl overflow-hidden shadow-xl ${className}`}>
       {/* Toolbar */}
-      <div className="border-b border-white/10 p-4 space-y-3">
+      <div className="border-b border-warm-400/20 p-4 space-y-3">
         {/* First Row - Basic Formatting */}
         <div className="flex items-center gap-2 flex-wrap">
           <Button
             variant={editor.isActive('bold') ? 'default' : 'ghost'}
             size="sm"
             onClick={() => editor.chain().focus().toggleBold().run()}
-            className="p-2"
+            className="p-2 hover:bg-warm-200/50"
           >
             <Bold className="w-4 h-4" />
           </Button>
@@ -271,7 +271,7 @@ export default function RichTextEditor({ content = '', onUpdate, title = 'Untitl
             variant={editor.isActive('italic') ? 'default' : 'ghost'}
             size="sm"
             onClick={() => editor.chain().focus().toggleItalic().run()}
-            className="p-2"
+            className="p-2 hover:bg-warm-200/50"
           >
             <Italic className="w-4 h-4" />
           </Button>
@@ -280,18 +280,18 @@ export default function RichTextEditor({ content = '', onUpdate, title = 'Untitl
             variant={editor.isActive('underline') ? 'default' : 'ghost'}
             size="sm"
             onClick={() => editor.chain().focus().toggleUnderline().run()}
-            className="p-2"
+            className="p-2 hover:bg-warm-200/50"
           >
             <UnderlineIcon className="w-4 h-4" />
           </Button>
 
-          <div className="w-px h-6 bg-white/20 mx-2" />
+          <div className="w-px h-6 bg-warm-400/30 mx-2" />
 
           <Button
             variant={editor.isActive('bulletList') ? 'default' : 'ghost'}
             size="sm"
             onClick={() => editor.chain().focus().toggleBulletList().run()}
-            className="p-2"
+            className="p-2 hover:bg-warm-200/50"
           >
             <List className="w-4 h-4" />
           </Button>
@@ -300,18 +300,18 @@ export default function RichTextEditor({ content = '', onUpdate, title = 'Untitl
             variant={editor.isActive('orderedList') ? 'default' : 'ghost'}
             size="sm"
             onClick={() => editor.chain().focus().toggleOrderedList().run()}
-            className="p-2"
+            className="p-2 hover:bg-warm-200/50"
           >
             <ListOrdered className="w-4 h-4" />
           </Button>
 
-          <div className="w-px h-6 bg-white/20 mx-2" />
+          <div className="w-px h-6 bg-warm-400/30 mx-2" />
 
           <Button
             variant={editor.isActive({ textAlign: 'left' }) ? 'default' : 'ghost'}
             size="sm"
             onClick={() => editor.chain().focus().setTextAlign('left').run()}
-            className="p-2"
+            className="p-2 hover:bg-warm-200/50"
           >
             <AlignLeft className="w-4 h-4" />
           </Button>
@@ -320,7 +320,7 @@ export default function RichTextEditor({ content = '', onUpdate, title = 'Untitl
             variant={editor.isActive({ textAlign: 'center' }) ? 'default' : 'ghost'}
             size="sm"
             onClick={() => editor.chain().focus().setTextAlign('center').run()}
-            className="p-2"
+            className="p-2 hover:bg-warm-200/50"
           >
             <AlignCenter className="w-4 h-4" />
           </Button>
@@ -329,41 +329,41 @@ export default function RichTextEditor({ content = '', onUpdate, title = 'Untitl
             variant={editor.isActive({ textAlign: 'right' }) ? 'default' : 'ghost'}
             size="sm"
             onClick={() => editor.chain().focus().setTextAlign('right').run()}
-            className="p-2"
+            className="p-2 hover:bg-warm-200/50"
           >
             <AlignRight className="w-4 h-4" />
           </Button>
 
-          <div className="w-px h-6 bg-white/20 mx-2" />
+          <div className="w-px h-6 bg-warm-400/30 mx-2" />
 
           <Popover open={isLinkDialogOpen} onOpenChange={setIsLinkDialogOpen}>
             <PopoverTrigger asChild>
               <Button
                 variant={editor.isActive('link') ? 'default' : 'ghost'}
                 size="sm"
-                className="p-2"
+                className="p-2 hover:bg-warm-200/50"
               >
                 <LinkIcon className="w-4 h-4" />
               </Button>
             </PopoverTrigger>
-            <PopoverContent className="w-80 bg-slate-800 border-white/20">
+            <PopoverContent className="w-80 glassmorphism-strong border-warm-400/30">
               <div className="space-y-3">
                 <div>
-                  <label className="text-sm text-white">URL</label>
+                  <label className="text-sm text-warm-800 font-medium">URL</label>
                   <Input
                     value={linkUrl}
                     onChange={(e) => setLinkUrl(e.target.value)}
                     placeholder="https://example.com"
-                    className="bg-white/5 border-white/20 text-white"
+                    className="form-input"
                   />
                 </div>
                 <div>
-                  <label className="text-sm text-white">Text (optional)</label>
+                  <label className="text-sm text-warm-800 font-medium">Text (optional)</label>
                   <Input
                     value={linkText}
                     onChange={(e) => setLinkText(e.target.value)}
                     placeholder="Link text"
-                    className="bg-white/5 border-white/20 text-white"
+                    className="form-input"
                   />
                 </div>
                 <Button onClick={addLink} size="sm" className="w-full">
@@ -380,12 +380,12 @@ export default function RichTextEditor({ content = '', onUpdate, title = 'Untitl
             const format = textFormats.find(f => f.label === value)
             if (format) setTextFormat(format)
           }}>
-            <SelectTrigger className="w-36 bg-white/5 border-white/20 text-white border-2 hover:border-white/30">
+            <SelectTrigger className="w-36 form-input border-2 hover:border-warm-500/60">
               <SelectValue placeholder={getCurrentFormat().label} />
             </SelectTrigger>
-            <SelectContent className="bg-slate-800 border-white/20">
+            <SelectContent className="glassmorphism-strong border-warm-400/30">
               {textFormats.map((format) => (
-                <SelectItem key={format.label} value={format.label} className="text-white hover:bg-white/10">
+                <SelectItem key={format.label} value={format.label} className="text-warm-800 hover:bg-warm-200/50">
                   <div className="flex items-center">
                     {format.icon && <format.icon className="w-4 h-4 mr-2" />}
                     {format.label}
@@ -396,12 +396,12 @@ export default function RichTextEditor({ content = '', onUpdate, title = 'Untitl
           </Select>
 
           <Select onValueChange={setFontFamily}>
-            <SelectTrigger className="w-40 bg-white/5 border-white/20 text-white border-2 hover:border-white/30">
+            <SelectTrigger className="w-40 form-input border-2 hover:border-warm-500/60">
               <SelectValue placeholder="Font Family" />
             </SelectTrigger>
-            <SelectContent className="bg-slate-800 border-white/20">
+            <SelectContent className="glassmorphism-strong border-warm-400/30">
               {fontFamilies.map((font) => (
-                <SelectItem key={font} value={font} className="text-white hover:bg-white/10">
+                <SelectItem key={font} value={font} className="text-warm-800 hover:bg-warm-200/50">
                   {font}
                 </SelectItem>
               ))}
@@ -409,12 +409,12 @@ export default function RichTextEditor({ content = '', onUpdate, title = 'Untitl
           </Select>
 
           <Select onValueChange={setFontSize}>
-            <SelectTrigger className="w-20 bg-white/5 border-white/20 text-white border-2 hover:border-white/30">
+            <SelectTrigger className="w-20 form-input border-2 hover:border-warm-500/60">
               <SelectValue placeholder="Size" />
             </SelectTrigger>
-            <SelectContent className="bg-slate-800 border-white/20">
+            <SelectContent className="glassmorphism-strong border-warm-400/30">
               {fontSizes.map((size) => (
-                <SelectItem key={size} value={size} className="text-white hover:bg-white/10">
+                <SelectItem key={size} value={size} className="text-warm-800 hover:bg-warm-200/50">
                   {size}
                 </SelectItem>
               ))}
@@ -423,18 +423,18 @@ export default function RichTextEditor({ content = '', onUpdate, title = 'Untitl
 
           <Popover>
             <PopoverTrigger asChild>
-              <Button variant="ghost" size="sm" className="p-2 border-2 border-white/20 hover:border-white/30 bg-white/5">
+              <Button variant="ghost" size="sm" className="p-2 border-2 border-warm-400/40 hover:border-warm-500/60 bg-warm-200/20">
                 <Palette className="w-4 h-4" />
                 <span className="ml-2 text-sm">Text Color</span>
               </Button>
             </PopoverTrigger>
-            <PopoverContent className="w-64 bg-slate-800 border-white/20">
+            <PopoverContent className="w-64 glassmorphism-strong border-warm-400/30">
               <div className="grid grid-cols-8 gap-1 p-2">
                 {colors.map((color) => (
                   <button
                     key={color}
                     onClick={() => setColor(color)}
-                    className="w-6 h-6 rounded border border-white/20 hover:scale-110 transition-transform"
+                    className="w-6 h-6 rounded border border-warm-400/30 hover:scale-110 transition-transform shadow-soft"
                     style={{ backgroundColor: color }}
                   />
                 ))}
@@ -444,18 +444,18 @@ export default function RichTextEditor({ content = '', onUpdate, title = 'Untitl
 
           <Popover>
             <PopoverTrigger asChild>
-              <Button variant="ghost" size="sm" className="p-2 border-2 border-white/20 hover:border-white/30 bg-white/5">
+              <Button variant="ghost" size="sm" className="p-2 border-2 border-warm-400/40 hover:border-warm-500/60 bg-warm-200/20">
                 <Palette className="w-4 h-4" />
                 <span className="ml-2 text-sm">Highlight</span>
               </Button>
             </PopoverTrigger>
-            <PopoverContent className="w-64 bg-slate-800 border-white/20">
+            <PopoverContent className="w-64 glassmorphism-strong border-warm-400/30">
               <div className="grid grid-cols-8 gap-1 p-2">
                 {colors.map((color) => (
                   <button
                     key={color}
                     onClick={() => setHighlight(color)}
-                    className="w-6 h-6 rounded border border-white/20 hover:scale-110 transition-transform"
+                    className="w-6 h-6 rounded border border-warm-400/30 hover:scale-110 transition-transform shadow-soft"
                     style={{ backgroundColor: color }}
                   />
                 ))}
@@ -466,7 +466,7 @@ export default function RichTextEditor({ content = '', onUpdate, title = 'Untitl
           <div className="ml-auto">
             <Button
               onClick={exportToPDF}
-              className="bg-gradient-to-r from-blue-500 to-green-500 hover:from-blue-600 hover:to-green-600 border-2 border-transparent hover:border-white/20"
+              className="glassmorphism-button border-2 border-transparent hover:border-warm-500/40"
               size="sm"
             >
               <Download className="w-4 h-4 mr-2" />
@@ -477,18 +477,14 @@ export default function RichTextEditor({ content = '', onUpdate, title = 'Untitl
       </div>
 
       {/* Editor Content */}
-      <div className="min-h-[400px] bg-white dark:bg-slate-900/50 p-4 rounded-lg">
+      <div className="min-h-[400px] bg-warm-50 p-4 rounded-lg">
         <EditorContent editor={editor} />
       </div>
 
       <style>{`
         .ProseMirror {
           outline: none;
-          color: #1e293b;
-        }
-        
-        .dark .ProseMirror {
-          color: #f1f5f9;
+          color: hsl(var(--text-primary));
         }
         
         .ProseMirror ul.tiptap-bullet-list {
@@ -508,12 +504,12 @@ export default function RichTextEditor({ content = '', onUpdate, title = 'Untitl
         }
         
         .ProseMirror a {
-          color: #3b82f6;
+          color: hsl(var(--accent-brown));
           text-decoration: underline;
         }
         
         .ProseMirror a:hover {
-          color: #60a5fa;
+          color: hsl(var(--accent-gold));
         }
         
         .ProseMirror h1 {
@@ -540,6 +536,7 @@ export default function RichTextEditor({ content = '', onUpdate, title = 'Untitl
         
         .ProseMirror strong {
           font-weight: bold;
+          color: hsl(var(--accent-brown));
         }
         
         .ProseMirror em {

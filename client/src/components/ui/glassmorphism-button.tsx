@@ -23,11 +23,11 @@ const GlassmorphismButton = ({
   title,
   type = "button"
 }: GlassmorphismButtonProps) => {
-  const baseClasses = "font-semibold transition-all duration-300 border border-slate-300/20 dark:border-white/20 flex items-center justify-center";
+  const baseClasses = "font-semibold transition-all duration-300 border border-warm-400/30 flex items-center justify-center btn-animate";
   
   const variants = {
-    default: "glassmorphism-button text-slate-900 dark:text-white",
-    outline: "glassmorphism text-slate-900 dark:text-white hover:glassmorphism-button"
+    default: "glassmorphism-button text-warm-50",
+    outline: "glassmorphism text-warm-800 hover:glassmorphism-button hover:text-warm-50 border-warm-500/40"
   };
   
   const sizes = {
@@ -46,11 +46,12 @@ const GlassmorphismButton = ({
         baseClasses,
         variants[variant],
         sizes[size],
-        disabled && "opacity-50 cursor-not-allowed",
+        disabled && "opacity-50 cursor-not-allowed transform-none",
         className
       )}
-      whileHover={disabled ? {} : { scale: 1.05 }}
-      whileTap={disabled ? {} : { scale: 0.95 }}
+      whileHover={disabled ? {} : { scale: 1.05, y: -2 }}
+      whileTap={disabled ? {} : { scale: 0.95, y: 0 }}
+      transition={{ duration: 0.2, ease: "easeInOut" }}
     >
       {children}
     </motion.button>

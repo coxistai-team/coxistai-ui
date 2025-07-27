@@ -1,10 +1,10 @@
 export const COLORS = {
-  primaryBg: '#0f0f1a',
-  cardBg: '#21223a',
-  accentBlue: '#3a86ff',
-  mintGreen: '#06d6a0',
-  textPrimary: '#ffffff',
-  textSecondary: '#b0bec5'
+  primaryBg: '#F5F5DC',      // Beige
+  cardBg: '#FAFAF7',        // Light cream
+  accentBrown: '#B8956A',   // Warm brown
+  accentGold: '#D4A574',    // Golden accent
+  textPrimary: '#2A2520',   // Dark brown
+  textSecondary: '#6B6258'  // Medium gray-brown
 } as const;
 
 export const NAVIGATION_ITEMS = [

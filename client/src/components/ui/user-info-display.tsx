@@ -15,9 +15,9 @@ export default function UserInfoDisplay() {
       animate={{ opacity: 1, y: 0 }}
       className="max-w-2xl mx-auto mb-8"
     >
-      <Card className="bg-blue-500/10 border-blue-200 dark:border-blue-800">
+      <Card className="glassmorphism border-warm-400/30 shadow-medium">
         <CardHeader>
-          <CardTitle className="flex items-center gap-2 text-blue-700 dark:text-blue-300">
+          <CardTitle className="flex items-center gap-2 text-warm-700">
             <Shield className="h-5 w-5" />
             Current User Session
           </CardTitle>
@@ -28,34 +28,34 @@ export default function UserInfoDisplay() {
         <CardContent className="space-y-4">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div className="flex items-center gap-3">
-              <User className="h-4 w-4 text-blue-600 dark:text-blue-400" />
+              <User className="h-4 w-4 text-warm-600" />
               <div>
                 <p className="text-sm font-medium">Username</p>
-                <p className="text-sm text-gray-600 dark:text-gray-300">{user.username}</p>
+                <p className="text-sm text-warm-700">{user.username}</p>
               </div>
             </div>
             
             <div className="flex items-center gap-3">
-              <Mail className="h-4 w-4 text-blue-600 dark:text-blue-400" />
+              <Mail className="h-4 w-4 text-warm-600" />
               <div>
                 <p className="text-sm font-medium">Email</p>
-                <p className="text-sm text-gray-600 dark:text-gray-300">{user.email || 'alex.johnson@email.com'}</p>
+                <p className="text-sm text-warm-700">{user.email || 'alex.johnson@email.com'}</p>
               </div>
             </div>
             
             <div className="flex items-center gap-3">
-              <Key className="h-4 w-4 text-blue-600 dark:text-blue-400" />
+              <Key className="h-4 w-4 text-warm-600" />
               <div>
                 <p className="text-sm font-medium">Password</p>
-                <p className="text-sm text-gray-600 dark:text-gray-300">default123</p>
+                <p className="text-sm text-warm-700">default123</p>
               </div>
             </div>
             
             <div className="flex items-center gap-3">
-              <User className="h-4 w-4 text-blue-600 dark:text-blue-400" />
+              <User className="h-4 w-4 text-warm-600" />
               <div>
                 <p className="text-sm font-medium">Full Name</p>
-                <p className="text-sm text-gray-600 dark:text-gray-300">
+                <p className="text-sm text-warm-700">
                   {user.firstName} {user.lastName}
                 </p>
               </div>
@@ -63,10 +63,10 @@ export default function UserInfoDisplay() {
           </div>
           
           <div className="flex items-center gap-2 pt-2">
-            <Badge className="bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200">
+            <Badge className="bg-beige-400/30 text-warm-700 border border-beige-400/40">
               Demo Account
             </Badge>
-            <Badge className="bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200">
+            <Badge className="bg-warm-500/20 text-warm-700 border border-warm-500/40">
               Pro Plan Active
             </Badge>
           </div>

@@ -77,7 +77,7 @@ const Login = () => {
           className="mb-6"
         >
           <Link href="/">
-            <Button variant="ghost" size="sm" className="text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white">
+            <Button variant="ghost" size="sm" className="text-warm-600 hover:text-warm-800 hover:bg-warm-200/50 transition-all duration-300">
               <ArrowLeft className="w-4 h-4 mr-2" />
               Back to Home
             </Button>
@@ -89,12 +89,12 @@ const Login = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="glassmorphism rounded-2xl p-8"
+          className="glassmorphism-strong rounded-2xl p-8 shadow-xl"
         >
           {/* Header */}
           <div className="text-center mb-8">
             <motion.h1 
-              className="text-3xl font-bold mb-2 bg-gradient-to-r from-blue-400 to-green-400 bg-clip-text text-transparent"
+              className="text-3xl font-bold mb-2 text-gradient-primary"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.2 }}
@@ -102,7 +102,7 @@ const Login = () => {
               Welcome Back
             </motion.h1>
             <motion.p 
-              className="text-slate-600 dark:text-slate-400"
+              className="text-warm-600"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.3 }}
@@ -120,31 +120,31 @@ const Login = () => {
           >
             <GlassmorphismButton
               variant="outline"
-              className="w-full py-3 flex items-center justify-center space-x-3 text-slate-900 dark:text-white"
+              className="w-full py-3 flex items-center justify-center space-x-3"
               onClick={() => handleSocialLogin("google")}
               disabled
             >
-              <FaGoogle className="w-5 h-5 text-red-500" />
+              <FaGoogle className="w-5 h-5 text-warm-600" />
               <span>Continue with Google</span>
             </GlassmorphismButton>
 
             <GlassmorphismButton
               variant="outline"
-              className="w-full py-3 flex items-center justify-center space-x-3 text-slate-900 dark:text-white"
+              className="w-full py-3 flex items-center justify-center space-x-3"
               onClick={() => handleSocialLogin("github")}
               disabled
             >
-              <FaGithub className="w-5 h-5 text-slate-900 dark:text-white" />
+              <FaGithub className="w-5 h-5 text-warm-800" />
               <span>Continue with GitHub</span>
             </GlassmorphismButton>
 
             <GlassmorphismButton
               variant="outline"
-              className="w-full py-3 flex items-center justify-center space-x-3 text-slate-900 dark:text-white"
+              className="w-full py-3 flex items-center justify-center space-x-3"
               onClick={() => handleSocialLogin("apple")}
               disabled
             >
-              <FaApple className="w-5 h-5 text-slate-900 dark:text-white" />
+              <FaApple className="w-5 h-5 text-warm-800" />
               <span>Continue with Apple</span>
             </GlassmorphismButton>
           </motion.div>
@@ -156,9 +156,9 @@ const Login = () => {
             animate={{ opacity: 1 }}
             transition={{ delay: 0.5 }}
           >
-            <Separator className="flex-1 bg-slate-300 dark:bg-white/20" />
-            <span className="px-4 text-sm text-slate-600 dark:text-slate-400">or</span>
-            <Separator className="flex-1 bg-slate-300 dark:bg-white/20" />
+            <Separator className="flex-1 bg-warm-400/40" />
+            <span className="px-4 text-sm text-warm-600">or</span>
+            <Separator className="flex-1 bg-warm-400/40" />
           </motion.div>
 
           {/* Login Form */}
@@ -171,9 +171,9 @@ const Login = () => {
           >
             {/* Username Field */}
             <div className="space-y-2">
-              <Label htmlFor="username" className="text-slate-900 dark:text-white">Username or Email</Label>
+              <Label htmlFor="username" className="text-warm-800 font-medium">Username or Email</Label>
               <div className="relative">
-                <Mail className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-slate-500 dark:text-slate-400" />
+                <Mail className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-warm-500" />
                 <Input
                   id="username"
                   name="username"
@@ -181,20 +181,20 @@ const Login = () => {
                   value={formData.username}
                   onChange={handleInputChange}
                   placeholder="Enter your username or email"
-                  className="pl-10 bg-white dark:bg-white/5 border-slate-300 dark:border-white/20 text-slate-900 dark:text-white placeholder-slate-500 dark:placeholder-slate-400 focus:border-blue-500 dark:focus:border-blue-400"
+                  className="pl-10 form-input"
                   required
                 />
               </div>
               {validationErrors.username && (
-                <div className="text-red-500 text-xs mt-1">{validationErrors.username}</div>
+                <div className="text-destructive text-xs mt-1">{validationErrors.username}</div>
               )}
             </div>
 
             {/* Password Field */}
             <div className="space-y-2">
-              <Label htmlFor="password" className="text-slate-900 dark:text-white">Password</Label>
+              <Label htmlFor="password" className="text-warm-800 font-medium">Password</Label>
               <div className="relative">
-                <Lock className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-slate-500 dark:text-slate-400" />
+                <Lock className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-warm-500" />
                 <Input
                   id="password"
                   name="password"
@@ -202,26 +202,26 @@ const Login = () => {
                   value={formData.password}
                   onChange={handleInputChange}
                   placeholder="Enter your password"
-                  className="pl-10 pr-10 bg-white dark:bg-white/5 border-slate-300 dark:border-white/20 text-slate-900 dark:text-white placeholder-slate-500 dark:placeholder-slate-400 focus:border-blue-500 dark:focus:border-blue-400"
+                  className="pl-10 pr-10 form-input"
                   required
                 />
                 <button
                   type="button"
                   onClick={() => setShowPassword(!showPassword)}
-                  className="absolute right-3 top-1/2 transform -translate-y-1/2 text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white"
+                  className="absolute right-3 top-1/2 transform -translate-y-1/2 text-warm-500 hover:text-warm-700 transition-colors"
                 >
                   {showPassword ? <EyeOff className="w-5 h-5" /> : <Eye className="w-5 h-5" />}
                 </button>
               </div>
               {validationErrors.password && (
-                <div className="text-red-500 text-xs mt-1">{validationErrors.password}</div>
+                <div className="text-destructive text-xs mt-1">{validationErrors.password}</div>
               )}
             </div>
 
             {/* Forgot Password */}
             <div className="text-right">
               <Link href="/forgot-password">
-                <button type="button" className="text-sm text-blue-400 hover:text-blue-300 transition-colors">
+                <button type="button" className="text-sm text-warm-600 hover:text-warm-700 transition-colors font-medium">
                   Forgot your password?
                 </button>
               </Link>
@@ -229,12 +229,12 @@ const Login = () => {
 
             {/* Error Message */}
             {formError && (
-              <div className="text-red-500 text-sm text-center">{formError}</div>
+              <div className="text-destructive text-sm text-center bg-destructive/10 p-3 rounded-lg border border-destructive/20">{formError}</div>
             )}
             {/* Login Button */}
             <GlassmorphismButton
               type="submit"
-              className="w-full py-3 bg-gradient-to-r from-blue-500 to-green-500 hover:from-blue-600 hover:to-green-600"
+              className="w-full py-3"
               disabled={isLoggingIn}
             >
               {isLoggingIn ? "Signing In..." : "Sign In"}
@@ -248,10 +248,10 @@ const Login = () => {
             animate={{ opacity: 1 }}
             transition={{ delay: 0.7 }}
           >
-            <p className="text-slate-600 dark:text-slate-400">
+            <p className="text-warm-600">
               Don't have an account?{" "}
               <Link href="/signup">
-                <span className="text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 cursor-pointer transition-colors">
+                <span className="text-warm-700 hover:text-warm-800 cursor-pointer transition-colors font-medium">
                   Sign up here
                 </span>
               </Link>
