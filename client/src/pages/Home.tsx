@@ -47,15 +47,6 @@ const Home = () => {
   const y = useTransform(scrollYProgress, [0, 1], ["0%", "50%"]);
   const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
 
-  const floatingElements = [
-    { id: 1, icon: Sparkles, color: "from-purple-400 to-pink-400", delay: 0 },
-    { id: 2, icon: Star, color: "from-teal-400 to-blue-400", delay: 0.5 },
-    { id: 3, icon: Target, color: "from-yellow-400 to-orange-400", delay: 1 },
-    { id: 4, icon: Heart, color: "from-red-400 to-pink-400", delay: 1.5 },
-    { id: 5, icon: Rocket, color: "from-blue-400 to-purple-400", delay: 2 },
-    { id: 6, icon: Lightning, color: "from-yellow-400 to-orange-400", delay: 2.5 },
-  ];
-
   const skillTags = [
     "React", "TypeScript", "AI/ML", "Python", "JavaScript", "Node.js",
     "Design", "Animation", "Figma", "Vue.js", "Grids", "Tailwind",
@@ -77,7 +68,7 @@ const Home = () => {
       type: "WORKSHOP",
       title: "AI-Powered Learning Workshop",
       subtitle: "Dr. Sarah Chen • Interactive Sessions",
-      bgColor: "bg-gray-50",
+      bgColor: "bg-white/10 backdrop-blur-xl border border-white/20",
       accentColor: "bg-orange-100",
       icon: Zap,
       action: "Add event",
@@ -88,7 +79,7 @@ const Home = () => {
       type: "COURSE",
       title: "Product Designer from Scratch",
       subtitle: "Beginner • 4-6 months • 12 Modules",
-      bgColor: "bg-amber-50",
+      bgColor: "bg-white/10 backdrop-blur-xl border border-white/20",
       accentColor: "bg-orange-100",
       icon: BookOpen,
       action: null,
@@ -99,7 +90,7 @@ const Home = () => {
       type: "EVENT",
       title: "Tech Meetup DevSum 2024",
       subtitle: "10/10/2023 - 14/10/2023 • Virtual & In-Person",
-      bgColor: "bg-green-50",
+      bgColor: "bg-white/10 backdrop-blur-xl border border-white/20",
       accentColor: "bg-green-100",
       icon: Calendar,
       action: "Add event",
@@ -110,7 +101,7 @@ const Home = () => {
       type: "STATS",
       title: "100K+",
       subtitle: "trained students worldwide",
-      bgColor: "bg-purple-500",
+      bgColor: "bg-purple-500/20 backdrop-blur-xl border border-purple-500/30",
       accentColor: "bg-purple-600",
       icon: Users,
       action: null,
@@ -122,7 +113,7 @@ const Home = () => {
       type: "FEATURE",
       title: "Competitive Advantage",
       subtitle: "Stay ahead with cutting-edge AI technology",
-      bgColor: "bg-yellow-400",
+      bgColor: "bg-yellow-400/20 backdrop-blur-xl border border-yellow-400/30",
       accentColor: "bg-yellow-500",
       icon: TrendingUp,
       action: null,
@@ -138,30 +129,7 @@ const Home = () => {
   ];
 
   return (
-    <div ref={containerRef} className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 relative overflow-hidden">
-      {/* Floating Background Elements */}
-      {floatingElements.map((element) => (
-        <motion.div
-          key={element.id}
-          className={`absolute w-16 h-16 rounded-full bg-gradient-to-r ${element.color} opacity-20 blur-xl`}
-          style={{
-            left: `${15 + element.id * 15}%`,
-            top: `${20 + element.id * 12}%`,
-          }}
-          animate={{
-            y: [-20, 20, -20],
-            scale: [1, 1.1, 1],
-            rotate: [0, 180, 360],
-          }}
-          transition={{
-            duration: 8,
-            repeat: Infinity,
-            delay: element.delay,
-            ease: "easeInOut"
-          }}
-        />
-      ))}
-
+    <div ref={containerRef} className="min-h-screen relative overflow-hidden">
       {/* Main Content */}
       <div className="relative z-10 px-4 sm:px-6 lg:px-8 pt-8 pb-16">
         {/* Hero Section */}
@@ -338,12 +306,12 @@ const Home = () => {
               
               {/* Header */}
               <div className="flex justify-between items-start mb-4">
-                <span className="text-xs font-semibold text-gray-600 uppercase tracking-wider">
+                <span className="text-xs font-semibold text-gray-300 uppercase tracking-wider">
                   {card.type}
                 </span>
                 {card.action && (
                   <div className="flex items-center space-x-2">
-                    <span className="text-xs text-gray-600">{card.action}</span>
+                    <span className="text-xs text-gray-300">{card.action}</span>
                     <div className="w-8 h-4 bg-gray-300 rounded-full relative">
                       <div className="w-3 h-3 bg-white rounded-full absolute top-0.5 left-0.5 transition-transform duration-200 group-hover:translate-x-4" />
                     </div>
@@ -353,10 +321,10 @@ const Home = () => {
 
               {/* Content */}
               <div className="relative z-10">
-                <h3 className="text-xl font-bold text-gray-900 mb-2">
+                <h3 className="text-xl font-bold text-white mb-2">
                   {card.title}
                 </h3>
-                <p className="text-sm text-gray-600 mb-4">
+                <p className="text-sm text-gray-300 mb-4">
                   {card.subtitle}
                 </p>
                 
@@ -366,7 +334,7 @@ const Home = () => {
                     {card.features.map((feature, idx) => (
                       <div key={idx} className="flex items-center space-x-2">
                         <CheckCircle className="w-4 h-4 text-green-500" />
-                        <span className="text-xs text-gray-600">{feature}</span>
+                        <span className="text-xs text-gray-300">{feature}</span>
                       </div>
                     ))}
                   </div>
@@ -384,7 +352,7 @@ const Home = () => {
 
               {/* Icon */}
               <div className="absolute bottom-4 right-4">
-                <card.icon className="w-6 h-6 text-gray-400 group-hover:text-gray-600 transition-colors" />
+                <card.icon className="w-6 h-6 text-gray-300 group-hover:text-white transition-colors" />
               </div>
             </motion.div>
           ))}

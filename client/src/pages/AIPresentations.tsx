@@ -929,21 +929,21 @@ const AIPresentations = () => {
   // Render loading state while fetching presentations
   if (isLoadingPresentations) {
     return (
-      <main className="relative z-10 pt-20 min-h-screen bg-gradient-to-br from-slate-50 to-slate-100 dark:from-slate-900 dark:to-slate-800 flex flex-col items-center justify-center">
+      <main className="relative z-10 pt-20 min-h-screen flex flex-col items-center justify-center">
         <div className="flex flex-col items-center justify-center py-16">
           <div className="w-8 h-8 border-4 border-blue-500 border-t-transparent rounded-full animate-spin mb-4"></div>
-          <div className="text-lg text-slate-600 dark:text-slate-300">Loading your presentations…</div>
+          <div className="text-lg text-white">Loading your presentations…</div>
         </div>
       </main>
     );
   }
 
   return (
-    <main className="relative z-10 pt-20 min-h-screen bg-gradient-to-br from-slate-50 to-slate-100 dark:from-slate-900 dark:to-slate-800">
+    <main className="relative z-10 pt-20 min-h-screen">
       <div className="max-w-7xl mx-auto px-4 py-8">
         <div className="text-center mb-8">
           <motion.h1
-            className="text-4xl font-bold mb-4 text-slate-900 dark:text-white"
+            className="text-4xl font-bold mb-4 text-white"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
@@ -951,7 +951,7 @@ const AIPresentations = () => {
             AI Presentations Studio
           </motion.h1>
           <motion.p
-            className="text-slate-600 dark:text-slate-400 mb-6"
+            className="text-gray-300 mb-6"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.2, duration: 0.6 }}
@@ -1047,11 +1047,11 @@ const AIPresentations = () => {
         </AnimatePresence>
 
         <div className="mb-6">
-          <h2 className="text-lg font-bold mb-2 text-slate-900 dark:text-white">Your Saved Presentations</h2>
+          <h2 className="text-lg font-bold mb-2 text-white">Your Saved Presentations</h2>
           {isLoadingPresentations ? (
             <div className="space-y-3">
               {[...Array(3)].map((_, i) => (
-                <div key={i} className="flex items-center gap-4 p-4 bg-white dark:bg-slate-800 rounded-lg border border-slate-200 dark:border-slate-700 shadow animate-pulse">
+                <div key={i} className="flex items-center gap-4 p-4 bg-white/10 backdrop-blur-xl rounded-lg border border-white/20 shadow animate-pulse">
                   <Skeleton className="h-10 w-10 rounded-full" />
                   <div className="flex-1 space-y-2">
                     <Skeleton className="h-4 w-1/2" />
@@ -1062,23 +1062,23 @@ const AIPresentations = () => {
               ))}
             </div>
           ) : savedPresentations.length === 0 ? (
-            <div className="text-slate-500">No saved presentations yet.</div>
+            <div className="text-gray-400">No saved presentations yet.</div>
           ) : (
             <div className="space-y-3">
               {savedPresentations.map((pres) => (
-                <div key={pres.id} className={`flex items-center gap-4 p-4 bg-white dark:bg-slate-800 rounded-lg border border-slate-200 dark:border-slate-700 shadow transition-all group ${pres.id === presentationId ? 'ring-2 ring-blue-400 border-blue-500' : ''}`}> 
+                <div key={pres.id} className={`flex items-center gap-4 p-4 bg-white/10 backdrop-blur-xl rounded-lg border border-white/20 shadow transition-all group ${pres.id === presentationId ? 'ring-2 ring-blue-400 border-blue-500' : ''}`}> 
                   <div className="h-10 w-10 rounded-full bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center text-white font-bold text-lg">
                     {pres.topic?.[0]?.toUpperCase() || 'P'}
                   </div>
                   <div className="flex-1 min-w-0">
-                    <div className="truncate font-semibold text-slate-900 dark:text-white">{pres.topic}</div>
-                    <div className="text-xs text-slate-500 dark:text-slate-400 truncate">{pres.created_at ? new Date(pres.created_at).toLocaleString() : ''}</div>
+                    <div className="truncate font-semibold text-white">{pres.topic}</div>
+                    <div className="text-xs text-gray-400 truncate">{pres.created_at ? new Date(pres.created_at).toLocaleString() : ''}</div>
                   </div>
                   <div className="flex gap-2">
                     <Button
                       variant="outline"
                       size="icon"
-                      className="hover:bg-blue-100 dark:hover:bg-blue-900"
+                      className="hover:bg-blue-100/20 dark:hover:bg-blue-900/20"
                       aria-label="Load presentation"
                       onClick={() => loadPresentation(pres.id)}
                       disabled={pres.id === presentationId || isLoadingSlides}
@@ -1120,7 +1120,7 @@ const AIPresentations = () => {
         <div className={`grid lg:grid-cols-3 gap-8 ${isPreviewMode ? "hidden" : ""}`}>
           <div className="lg:col-span-2">
             <motion.div
-              className="bg-white dark:bg-slate-800 rounded-xl p-6 border border-slate-200 dark:border-slate-700 shadow-2xl min-h-[500px]"
+              className="bg-white/10 backdrop-blur-xl rounded-xl p-6 border border-white/20 shadow-2xl min-h-[500px]"
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6 }}
@@ -1140,7 +1140,7 @@ const AIPresentations = () => {
                       <Button variant="ghost" size="sm" onClick={prevSlide} disabled={currentSlideIndex === 0}>
                         <ChevronLeft className="w-4 h-4" />
                       </Button>
-                      <span className="text-sm text-slate-600 dark:text-slate-300">
+                      <span className="text-sm text-gray-300">
                         {currentSlideIndex + 1} / {slides.length}
                       </span>
                       <Button
@@ -1161,7 +1161,7 @@ const AIPresentations = () => {
                   </div>
 
                   <motion.div
-                    className={`w-full rounded-lg border border-slate-200 dark:border-slate-700 overflow-hidden shadow-xl ${getSlideBackgroundClasses(currentSlide)}`}
+                    className={`w-full rounded-lg border border-white/20 overflow-hidden shadow-xl ${getSlideBackgroundClasses(currentSlide)}`}
                     style={{
                       aspectRatio: "16/9",
                       minHeight: "400px",
@@ -1278,7 +1278,7 @@ const AIPresentations = () => {
                       whileHover={{ scale: 1.05 }}
                       whileTap={{ scale: 0.95 }}
                     >
-                      <Plus className="w-6 h-6 text-slate-600 dark:text-white" />
+                      <Plus className="w-6 h-6 text-white" />
                     </motion.div>
                   </div>
                 </>
@@ -1288,7 +1288,7 @@ const AIPresentations = () => {
 
           <div className="lg:col-span-1">
             <motion.div
-              className="bg-white dark:bg-slate-800 rounded-xl p-6 space-y-6 border border-slate-200 dark:border-slate-700 min-h-[300px]"
+              className="bg-white/10 backdrop-blur-xl rounded-xl p-6 space-y-6 border border-white/20 min-h-[300px]"
               initial={{ opacity: 0, x: 20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6 }}
@@ -1302,35 +1302,35 @@ const AIPresentations = () => {
               ) : (
                 <>
                   <div className="flex items-center justify-between mb-4">
-                    <h2 className="text-xl font-bold text-slate-900 dark:text-white">Edit Slide</h2>
+                    <h2 className="text-xl font-bold text-white">Edit Slide</h2>
                   </div>
 
                   <div className="space-y-4">
                     <div>
-                      <Label className="text-slate-900 dark:text-white">Title</Label>
+                      <Label className="text-white">Title</Label>
                       <Input
                         value={editorTitle}
                         onChange={(e) => updateSlideContent("title", e.target.value)}
-                        className="bg-white dark:bg-white/5 border-slate-300 dark:border-white/20 text-slate-900 dark:text-white"
+                        className="bg-white/10 border-white/20 text-white placeholder-gray-400"
                       />
                     </div>
 
                     <div>
-                      <Label className="text-slate-900 dark:text-white">Subtitle</Label>
+                      <Label className="text-white">Subtitle</Label>
                       <Input
                         value={editorSubtitle}
                         onChange={(e) => updateSlideContent("subtitle", e.target.value)}
-                        className="bg-white dark:bg-white/5 border-slate-300 dark:border-white/20 text-slate-900 dark:text-white"
+                        className="bg-white/10 border-white/20 text-white placeholder-gray-400"
                         placeholder="Add a subtitle (for title slide)"
                       />
                     </div>
 
                     <div>
-                      <Label className="text-slate-900 dark:text-white">Content</Label>
+                      <Label className="text-white">Content</Label>
                       <Textarea
                         value={editorContent}
                         onChange={(e) => updateSlideContent("content", e.target.value)}
-                        className="bg-white dark:bg-white/5 border-slate-300 dark:border-white/20 text-slate-900 dark:text-white min-h-[100px]"
+                        className="bg-white/10 border-white/20 text-white placeholder-gray-400 min-h-[100px]"
                         placeholder="Add your slide content..."
                       />
                     </div>
@@ -1342,12 +1342,12 @@ const AIPresentations = () => {
         </div>
 
         <Dialog open={showExportDialog} onOpenChange={setShowExportDialog}>
-          <DialogContent className="bg-white dark:bg-slate-900 border-slate-300 dark:border-white/20">
+          <DialogContent className="bg-white/10 backdrop-blur-xl border-white/20">
             <DialogHeader>
-              <DialogTitle className="text-slate-900 dark:text-white">Export Presentation</DialogTitle>
+              <DialogTitle className="text-white">Export Presentation</DialogTitle>
             </DialogHeader>
             <div className="space-y-4">
-              <p className="text-slate-600 dark:text-slate-300">Choose your export format:</p>
+              <p className="text-gray-300">Choose your export format:</p>
               <div className="grid grid-cols-2 gap-4">
                 <Button
                   onClick={() => exportPresentation("pdf")}
@@ -1369,7 +1369,7 @@ const AIPresentations = () => {
               {isDownloading && (
                 <div className="text-center">
                   <div className="w-6 h-6 border-2 border-blue-500 border-t-transparent rounded-full animate-spin mx-auto mb-2"></div>
-                  <p className="text-slate-600 dark:text-slate-400 text-sm">
+                  <p className="text-gray-400 text-sm">
                     Preparing your presentation for download...
                   </p>
                 </div>
@@ -1379,29 +1379,29 @@ const AIPresentations = () => {
         </Dialog>
 
         <Dialog open={showGenerateDialog} onOpenChange={setShowGenerateDialog}>
-          <DialogContent className="bg-white dark:bg-slate-900 border-slate-300 dark:border-white/20">
+          <DialogContent className="bg-white/10 backdrop-blur-xl border-white/20">
             <DialogHeader>
-              <DialogTitle className="text-slate-900 dark:text-white">Generate AI Presentation</DialogTitle>
+              <DialogTitle className="text-white">Generate AI Presentation</DialogTitle>
             </DialogHeader>
             <div className="space-y-4">
               <div>
-                <Label className="text-slate-900 dark:text-white">Topic</Label>
+                <Label className="text-white">Topic</Label>
                 <Input
                   value={generateTopic}
                   onChange={(e) => setGenerateTopic(e.target.value)}
                   placeholder="e.g., Climate Change, Machine Learning, History of Art..."
-                  className="bg-white dark:bg-white/5 border-slate-300 dark:border-white/20 text-slate-900 dark:text-white"
+                  className="bg-white/10 border-white/20 text-white placeholder-gray-400"
                 />
               </div>
               <div>
-                <Label className="text-slate-900 dark:text-white">Number of Slides</Label>
+                <Label className="text-white">Number of Slides</Label>
                 <Input
                   type="number"
                   value={slideCount}
                   onChange={(e) => setSlideCount(Number.parseInt(e.target.value) || 5)}
                   min="3"
                   max="20"
-                  className="bg-white dark:bg-white/5 border-slate-300 dark:border-white/20 text-slate-900 dark:text-white"
+                  className="bg-white/10 border-white/20 text-white placeholder-gray-400"
                 />
               </div>
               <Button
@@ -1423,7 +1423,7 @@ const AIPresentations = () => {
               </Button>
               {isGenerating && (
                 <div className="text-center">
-                  <p className="text-slate-400 text-sm">
+                  <p className="text-gray-400 text-sm">
                     Creating your AI-powered presentation...
                   </p>
                 </div>
