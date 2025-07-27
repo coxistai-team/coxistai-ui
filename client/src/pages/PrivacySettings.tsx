@@ -52,13 +52,6 @@ export default function PrivacySettings() {
     try {
       await updateProfile({
         publicProfile: settings.publicProfile,
-        shareStudyProgress: settings.shareStudyProgress,
-        dataCollection: settings.dataCollection,
-        analyticsTracking: settings.analyticsTracking,
-        thirdPartyIntegrations: settings.thirdPartyIntegrations,
-        profileVisibility: settings.profileVisibility,
-        searchable: settings.searchable,
-        showInLeaderboards: settings.showInLeaderboards,
       });
       toast({
         title: "Settings saved",

@@ -107,11 +107,19 @@ const ResetPassword = () => {
           className="glassmorphism-strong rounded-2xl p-8 shadow-xl"
         >
           <div className="text-center mb-8">
+            <motion.div
+              className="w-16 h-16 bg-beige-500 rounded-full flex items-center justify-center mx-auto mb-6 shadow-medium"
+              initial={{ scale: 0 }}
+              animate={{ scale: 1 }}
+              transition={{ delay: 0.2 }}
+            >
+              <CheckCircle className="w-8 h-8 text-warm-50" />
+            </motion.div>
             <motion.h1 
               className="text-3xl font-bold mb-2 text-gradient-primary"
               initial={{ opacity: 0 }}
-            className="w-16 h-16 bg-beige-500 rounded-full flex items-center justify-center mx-auto mb-6 shadow-medium"
-              transition={{ delay: 0.2 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.3 }}
             >
               Reset Your Password
             </motion.h1>
@@ -119,7 +127,7 @@ const ResetPassword = () => {
               className="text-warm-600"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              transition={{ delay: 0.3 }}
+              transition={{ delay: 0.4 }}
             >
               Enter your new password below.
             </motion.p>
@@ -129,9 +137,9 @@ const ResetPassword = () => {
             className="space-y-6"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ delay: 0.4 }}
+            transition={{ delay: 0.5 }}
           >
-            <CheckCircle className="w-8 h-8 text-warm-50" />
+            <div className="space-y-2">
               <Label htmlFor="password" className="text-warm-800 font-medium">New Password</Label>
               <Input
                 id="password"
@@ -158,10 +166,12 @@ const ResetPassword = () => {
               />
             </div>
             {error && (
-              <div className="text-destructive text-sm text-center bg-destructive/10 p-3 rounded-lg border border-destructive/20">{error}</div>
+              <div className="text-destructive text-sm text-center bg-destructive/10 p-3 rounded-lg border border-destructive/20">
+                {error}
+              </div>
             )}
             <GlassmorphismButton
-            className="text-warm-600 mb-6"
+              type="submit"
               className="w-full py-3"
               disabled={loading}
             >
